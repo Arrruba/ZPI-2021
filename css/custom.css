@@ -3,8 +3,10 @@ body{
     background-image: url("../img/main leaves.png");
     background-size: 20%;
     background-repeat: no-repeat;
+    background-position:fixed;
     background-position-x: right;
-    background-position-y:120%;
+    background-position-y: 100%;
+    background-attachment: fixed;
     font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
   }
   
@@ -15,6 +17,7 @@ body{
     padding-left: 100px;
     padding-right: 100px;
     margin-top: 130px;
+    margin-bottom: 30px;
   }
   
   .post{
