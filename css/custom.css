@@ -1,0 +1,466 @@
+body{
+    background-color: #F8FDF9; 
+    background-image: url("../img/main leaves.png");
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y:120%;
+    font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+  }
+  
+  .my-container{
+    background-color: rgba(255, 255, 255, 0.76);
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 130px;
+  }
+  
+  .post{
+    margin-top: 40px;
+  }
+  
+  .check-button{
+      width: 700px; 
+      height: 50px;
+      margin-left: 10%;
+      padding: 7px 10px;
+      border-radius: 2px;
+      font-size: medium;
+      text-align: center;
+      color: white;
+      border-style:none;
+      background-color: rgb(204,117,1);
+  }
+  
+  .modal-button{
+    width: 140px; 
+    height: 40px;
+    margin-left: 10%;
+    border-radius: 2px;
+    font-size: small;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    border-style:none;
+    background-color: rgba(204, 116, 1, 0.753);
+  }
+  
+  .modal-button:hover{
+    color: white;
+    border-style:none;
+    background-color: rgb(204, 116, 1);
+  }
+  
+  .logon-link{
+      color: white;
+  }
+  
+  .logon-link:hover{
+      color: rgb(230, 185, 112);
+  }
+  
+  .main-menu-item{
+      color: #4F4F4F;   
+      font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+      /*text-transform: uppercase;*/
+      
+      font-weight: lighter;
+      vertical-align: middle;
+  }
+  
+  .main-menu-item:hover{
+      color: #6b9b5ee5;/* rgb(241, 185, 112);*/
+  }
+  
+  .col-w-50{
+      min-width: 50%;
+      margin: 0;
+  }
+  .col-w-20{
+      min-width: 20%;
+      margin: 0;
+  }
+  
+  .color-accent{
+      color: rgb(204,117,1);
+  }
+  
+    .col1{
+        width: 200px;
+    }
+  
+    .col2{
+      width: 330px;
+  }
+  
+    .login-button{
+      width: 370px;
+      background-color: rgb(204,117,1);
+  }
+  
+    @keyframes shine {
+      to {
+        opacity: 1;
+        right: 210%;
+      }
+    }
+    @keyframes disappear {
+      0% {
+          opacity: 0;
+          right: 400%;
+        }
+      80% {
+          opacity: 1;
+          right: 400%;
+        }
+      100% {
+        opacity: 0;
+        right: 400%;
+      }
+    }
+   
+  .play-btn{
+    height: 20px;
+    float: right;
+  }
+  
+  
+  .my-tab-color tr th {
+    border-bottom: 2px solid rgb(204,117,1); /* Change the color you want to set */
+  }
+  
+  .my-tab-color tr td {
+    border-bottom: 1px solid rgba(204, 116, 1, 0.274); /* Change the color you want to set */
+  }
+  
+  .w-90{
+    width: 90%;
+  }
+  
+  .title-author{
+    font-weight: bolder;
+  }
+  
+  footer div{
+    font-size: small;
+    font-weight: lighter;
+    font-style: italic;
+    color: rgb(94, 94, 94);
+    text-align: center;
+   /* padding-bottom: 10px;*/
+    position:fixed;
+      bottom:0px;
+      height:30px;
+      width:100%;
+      z-index:-10;
+  }
+  
+  #frame {
+    width: 900px; 
+    height: 520px;  
+   display: block;
+    border-style:none;
+    margin: 0 auto;
+    align-self: center;
+    margin-left: 12%;
+    margin-top: 50px;
+    -ms-zoom: 0.75;
+    -moz-transform: scale(0.75);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.75);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.75);
+    -webkit-transform-origin: 0 0;
+    
+  }
+  
+  
+  
+    /* LOGIN/REGISTER WINDOW AND ANIMATION*/
+  
+    .wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: column; 
+      justify-content: center;
+      width: 100%;
+      min-height: 100%;
+      padding: 20px;
+    }
+  
+    #formContent {
+      -webkit-border-radius: 10px 10px 10px 10px;
+      border-radius: 10px 10px 10px 10px;
+      background: #fff;
+      padding: 30px;
+      width: 90%;
+      max-width: 450px;
+      position: relative;
+      padding: 0px;
+      -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+      box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    
+    #formFooter {
+      background-color: #f6f6f6;
+      border-top: 1px solid #dce8f1;
+      padding: 25px;
+      text-align: center;
+      -webkit-border-radius: 0 0 10px 10px;
+      border-radius: 0 0 10px 10px;
+    }
+  
+  
+  input[type=button], input[type=submit], input[type=reset]  {
+      background-color: rgb(204,117,1);
+      border: none;
+      color: white;
+      padding: 15px 80px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 13px;
+      width: 85%;
+      -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+      box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+      -webkit-border-radius: 5px 5px 5px 5px;
+      border-radius: 3px;
+      margin: 5px;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+      background-color: rgb(226, 142, 33);
+    }
+    
+    input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+      -moz-transform: scale(0.95);
+      -webkit-transform: scale(0.95);
+      -o-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+      transform: scale(0.95);
+    }
+    
+    .wrapper input[type=text] {
+      background-color: #f6f6f6;
+      border: none;
+      color: #0d0d0d;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px;
+      width: 85%;
+      border: 2px solid #f6f6f6;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      -webkit-border-radius: 5px 5px 5px 5px;
+      border-radius: 3px;
+    }
+    
+    input[type=text]:focus {
+      background-color: #fff;
+      border-bottom: 2px solid #5fbae9;
+    }
+    
+    input[type=text]:placeholder {
+      color: #cccccc;
+    }
+    
+    
+    
+    /* ANIMATIONS */
+    
+    /* Simple CSS3 Fade-in-down Animation */
+    .fadeInDown {
+      -webkit-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    
+    @-webkit-keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+    
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+    
+    /* Simple CSS3 Fade-in Animation */
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    
+    .fadeIn {
+      opacity:0;
+      -webkit-animation:fadeIn ease-in 1;
+      -moz-animation:fadeIn ease-in 1;
+      animation:fadeIn ease-in 1;
+    
+      -webkit-animation-fill-mode:forwards;
+      -moz-animation-fill-mode:forwards;
+      animation-fill-mode:forwards;
+    
+      -webkit-animation-duration:1s;
+      -moz-animation-duration:1s;
+      animation-duration:1s;
+    }
+    
+    .fadeIn.first {
+      -webkit-animation-delay: 0.4s;
+      -moz-animation-delay: 0.4s;
+      animation-delay: 0.4s;
+    }
+    
+    .fadeIn.second {
+      -webkit-animation-delay: 0.6s;
+      -moz-animation-delay: 0.6s;
+      animation-delay: 0.6s;
+    }
+    
+    .fadeIn.third {
+      -webkit-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+      animation-delay: 0.8s;
+    }
+    
+    .fadeIn.fourth {
+      -webkit-animation-delay: 1s;
+      -moz-animation-delay: 1s;
+      animation-delay: 1s;
+    }
+    
+    /* Simple CSS3 Fade-in Animation */
+    .underlineHover:after {
+      display: block;
+      left: 0;
+      bottom: -10px;
+      width: 0;
+      height: 2px;
+      background-color: #56baed;
+      content: "";
+      transition: width 0.2s;
+    }
+    
+    .underlineHover:hover {
+      color: #0d0d0d;
+    }
+    
+    .underlineHover:hover:after{
+      width: 100%;
+    }
+    
+  
+  
+  
+  
+  /********** SPINNER  **************/
+  
+  
+  #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+  #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 80px;
+      height: 80px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: rgb(44, 27, 5);
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+  }
+  #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #56baed;
+      -webkit-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+  }
+  #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: rgb(226, 142, 33);
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+  }
+  @-webkit-keyframes spin {
+      0%   {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+      }
+      100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+      }
+  }
+  @keyframes spin {
+      0%   {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+      }
+      100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+      }
+  }
+  
+  /********** SPINNER - koniec **************/
+  
