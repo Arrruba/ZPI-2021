@@ -28,6 +28,9 @@
 <body>
     <!-- Start your project here-->
 
+
+
+
     <!-- Main Navigation-->
     <header>
         <!-- Navbar -->
@@ -38,12 +41,20 @@
                     <a class="navbar-brand" href="index.html" >
                         <img src="img/wroclaw logo.png" style="height: 2.5em;">
                     </a>
-                    <div id="singIn" class="main-menu-item" style="float: right; right: 1em; position: absolute; margin-right: 0; margin-top:-45px; " data-onsuccess="onSignIn"> Zaloguj się</div>
-                   <!-- <div id="singIn" class="g-signin2" style="float: right; right: 1em; position: absolute; margin-right: 0; height: 30px; width: 30px; margin-top:-55px; " data-onsuccess="onSignIn"></div> -->
+                    
+                    <div id="singIn" class="logIn main-menu-item" style="float: right; right: 1em; position: absolute; margin-right: 0; margin-top:-45px; " data-onsuccess="onSignIn"><button class="log-in-button" onclick="popup()" value="S p r a w d ź" data-toggle="modal" data-target="#centralModal">Zaloguj się</button></div>
+                 <!-- <div id="singIn" class="g-signin2" style="float: right; right: 1em; position: absolute; margin-right: 0; height: 30px; width: 30px; margin-top:-55px; " data-onsuccess="onSignIn"></div> -->
                     <div id="content"  style="float: right; right: 1em; position: absolute; margin-right: 9%; color: white; min-width: 100px; text-align: center;"> </div>
                     <a href="#" id="signOut" class="main-menu-item" style="float: right; right: 250px; position: absolute; margin-right: 0; display: none; text-align: right;" onclick="signOut()">SIGN OUT</a>
-
+                   <!--
+                    <div id="singIn" class="g-signin2" style="float: right; right: 1em; position: absolute; margin-right: 0; margin-top: -50px;" data-onsuccess="onSignIn"></div>
+                    <div id="content"  style="float: right; right: 1em; position: absolute; margin-right: 9%; margin-top: -50px; color: white; min-width: 100px; text-align: center;"> </div>
+                    <a href="#" id="signOut" class="main-menu-item" style="float: right; right: 250px; position: absolute; margin-right: 0; margin-top: -50px; display: none; text-align: right; color: #4F4F4F;" onclick="signOut()">SIGN OUT</a>
+                   -->
                     <script>
+                        
+                       // $('div.logIn').click(function(){ onSignIn(googleUser);});
+        
                         function onSignIn(googleUser) {
                             console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
 
@@ -60,6 +71,8 @@
                             image.setAttribute('height',"30px");
                             image.style.marginLeft="7px";
                             element.append(image);
+                            document.getElementById('signIn').style.display = 'none';
+                            document.getElementById('content').style.display = 'block';
                             document.getElementById('signOut').style.display = 'block';
 
                             var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
@@ -107,6 +120,9 @@
     </header>
     <!-- /Main Navigation-->
 
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
 
     <!-- Main Layout-->
     <main class=" w-100 h-100" >
@@ -144,18 +160,60 @@
 
             </div>
         </div>
+
+
+
+<!-- Central Modal Medium data-toggle="modal" data-target="#centralModal"-->
+<div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog w-100" role="document" >
+        <div class="modal-content" style="padding: 10px; border-radius: 0;">
+            <div class="w-100" style="text-align: center;">
+                <button type="button" class="close close-btn" style="background-color: #91e561ef; height: 20px; width: 20px; font-size: 1.5em; font-weight: lighter; position: relative; margin-left: 95%;" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+                <div class="w-100" >
+                    <div style="display:inline-block;">
+                        <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
+                    </div>
+                    <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
+                </div>
+            </div>
+            <div id="modalBody" style=" font-size: 1em; font-weight: lighter; margin-top: 60px; text-align: center;">
+
+                <input class="input-login" type="text" placeholder="login" name="username" required>
+                <input class="input-login" type="password" placeholder="hasło" name="password" required>
+<!--
+                <label>
+                <input type="checkbox" checked="unchecked" name="accept"> Akceptuję <a href="#" class="logon-link">regulamin</a>
+                </label>
+            -->
+
+            </div>
+           <!-- <div style="margin-top: 30px; display: flex; text-align: right; justify-content: center;"> -->
+                <button type="submit" class="btn modal-button" data-dismiss="modal" style="margin-top: 40px; ">Zaloguj</button>
+                <button type="button" class="btn modal-button" data-dismiss="modal" style="margin-top: 10px; ">Logowanie za pomocą Google</button>
+
+                <p class="modal-title" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;">Nie masz jeszcze konta? <a href="#" class="logon-link">Zarejestruj się</a></p>
+           <!-- </div> -->
+        </div>
+    </div>
+</div>
+<!-- Central Modal Medium -->
+
+
     </main>
     <!-- /Main Layout-->
 
 
-  
-  
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Your custom scripts (optional) -->
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript">
-        
-    </script>
+   <!-- jQuery -->
+   <script type="text/javascript" src="js/jquery.min.js"></script>
+   <!-- Bootstrap tooltips -->
+   <script type="text/javascript" src="js/popper.min.js"></script>
+   <!-- Bootstrap core JavaScript -->
+   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+   <!-- MDB core JavaScript -->
+   <script type="text/javascript" src="js/mdb.min.js"></script>
+   <!-- Your custom scripts (optional) -->
+   <script type="text/javascript" src="index.js"></script>
+ 
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 </body>
 

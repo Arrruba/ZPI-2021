@@ -23,6 +23,22 @@ body{
   .post{
     margin-top: 40px;
   }
+
+  .close-btn{
+    background-color: #91e561ef;
+    color: white;
+    height: 25px;
+    text-align: center;
+    border-style:none;
+    padding: 0;
+  }
+
+  .close-btn:hover{
+    color: white;
+    border-style:none;
+    background-color: #92E561;
+  }
+  
   
   .check-button{
       width: 700px; 
@@ -38,7 +54,7 @@ body{
   }
   
   .modal-button{
-    width: 140px; 
+    width: 80%; 
     height: 40px;
     margin-left: 10%;
     border-radius: 2px;
@@ -47,30 +63,63 @@ body{
     text-align: center;
     color: white;
     border-style:none;
-    background-color: rgba(204, 116, 1, 0.753);
+    background-color: #91e561ef;
   }
   
   .modal-button:hover{
     color: white;
     border-style:none;
-    background-color: rgb(204, 116, 1);
+    background-color: #92E561;
   }
   
   .logon-link{
-      color: white;
+      color: #92E561;
+      text-decoration: underline;
+  }
+
+  .input-login{
+    width: 80%;
+    height: 40px;
+    border-color: #91e561;
+    border-width: 1px;
+    color: #4F4F4F;
+    font-style: italic;
+    border-style: solid;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-top:10px;
+    font-weight: lighter;
+    padding-left:10px;
   }
   
   .logon-link:hover{
-      color: rgb(230, 185, 112);
+      color: #91e561;
   }
   
   .main-menu-item{
       color: #4F4F4F;   
       font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
       /*text-transform: uppercase;*/
-      
       font-weight: lighter;
       vertical-align: middle;
+  }
+
+  #myModalLabel{
+      font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+      font-weight: lighter;
+      width: 150px;
+      margin: 0px;
+      display:inline-block;
+      vertical-align: bottom;
+  }
+
+  .log-in-button{
+    background-color: white;
+    border: none;
+    box-shadow: none;
+    color: #4F4F4F;   
+    font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
+    font-weight: lighter;
   }
   
   .main-menu-item:hover{

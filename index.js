@@ -1,42 +1,46 @@
 window.onload= function onload(){
-    var url_get_songs = "http://localhost:8080/get/topFiveScoresString";
-    var id=1;
-    var ini = 567;
-    var count=0;
-    $.ajax(
-        {
-            url: url_get_songs,
-            type:"GET",
-            contentType:"application/json; charset=utf-8",
-            success: function(results){
-                var htmlc='<table class="table align-middle table-hover">'+
-                '<thead >'+
-                  '<tr>'+
-                    '<th class="col1" scope="col">Numer na liście</th>'+
-                    '<th class="col2" scope="col">Tytuł</th>'+
-                    '<th class="col2" scope="col">Wykonawca</th>'+
-                    '<th scope="col">Liczba odsłuchań</th>'+
-                  '</tr>'+
-                '</thead>'+
-                '<tbody id="tab-body">';
-                $.each(results, function(key,item){
-                    var res_split = item.split(',');
-                    if(count<5){
-                        htmlc += '<tr>';
-                        htmlc += '<td class="col1" scope="row">'+id+'.</td>';
-                        htmlc += '<td class="col2" id="row'+id+'-title">'+res_split[0]+'</td>';
-                        htmlc += '<td class="col2" id="row'+id+'-author">'+res_split[1]+'</td>';
-                        htmlc += '<td class="col2" id="row'+id+'-stat">'+res_split[2]+'</td></tr>';
-                        id++;
-                       // ini = ini-7;
-                    }
-                    count++;
-                });
-                htmlc += '</tbody></table>';
-                $("#tab").append((htmlc));
-
-               // $('#tab-body').html(htmlc);
-            }
-        }
-    );
+    
+    
 }
+
+function popup(){
+
+  //  var auth2 = gapi.auth2.getAuthInstance();
+   // var profile = auth2.currentUser.get().getBasicProfile();
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+   
+
+  // document.getElementById("modalBody").innerHTML ="0/10";
+}
+
+
+function onSignIn(googleUser) {
+    console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
+
+    var element = document.querySelector('#content');
+    var str_short = (googleUser.getBasicProfile().getName()).split(' ');
+    var str="";
+    str_short.forEach(element => {
+        str = str+element[0];
+    });
+    element.innerText = str;//googleUser.getBasicProfile().getName();
+
+    var image = document.createElement('img');
+    image.setAttribute('src', googleUser.getBasicProfile().getImageUrl());
+    image.setAttribute('height',"30px");
+    image.style.marginLeft="7px";
+    element.append(image);
+    document.getElementById('signOut').style.display = 'block';
+
+    var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
+        $.ajax({
+            url: ulr_add_user,
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            success: function(results) {
+            $("#signIn").css("visibility", "none");
+            }
+        });
+    }
