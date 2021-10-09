@@ -32,8 +32,9 @@ function onSignIn(googleUser) {
     image.setAttribute('height',"30px");
     image.style.marginLeft="7px";
     element.append(image);
-    document.getElementById('signOut').style.display = 'block';
+    document.getElementById('content').style.display = 'block';
 
+    /*
     var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
         $.ajax({
             url: ulr_add_user,
@@ -42,5 +43,21 @@ function onSignIn(googleUser) {
             success: function(results) {
             $("#signIn").css("visibility", "none");
             }
+        });*/
+     document.getElementById('signIn').style.display = 'none';
+     document.getElementById('close-modal').click();
+    }
+
+    function signOut() {
+        gapi.auth2.getAuthInstance().signOut().then(function() {
+            console.log('User signed out');
+            var element = document.querySelector('#content');
+            element.innerHTML = '';
+            document.getElementById('content').style.display = 'none';
+            document.getElementById('signIn').style.display = 'block';
+
         });
     }
+
+
+    

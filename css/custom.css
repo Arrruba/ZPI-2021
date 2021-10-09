@@ -52,6 +52,26 @@ body{
       border-style:none;
       background-color: rgb(204,117,1);
   }
+
+  .close-button{
+    background-color: #91e56173;
+    color: white; 
+    border-style: none;
+    height: 20px;
+    width: 20px; 
+    padding-bottom: 5px;
+    font-size: 1em; 
+    font-weight: lighter; 
+    position: relative; 
+    margin-left: 95%; 
+    font-size: medium;  
+    display: inline-flex;
+    align-items: center; 
+  }
+
+  .close-button:hover{
+    background-color: #91e561;  
+  }
   
   .modal-button{
     width: 80%; 
@@ -71,7 +91,59 @@ body{
     border-style:none;
     background-color: #92E561;
   }
+
+  .google-signIn-button{
+    width: 80%; 
+    height: 40px;
+    margin-left: 10%;
+    border-radius: 2px;
+    text-align: center;
+    color: white;
+    border-style:none;
+  }
   
+
+/* GOOGLE SIGN-IN CUSTOM BUTTON - UNUSED!*/
+
+#custom-google-btn {
+  display: inline-block;
+  background: white;
+  color: #444;
+  width: 190px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
+#custom-google-btn:hover {
+  cursor: pointer;
+}
+span.label {
+  font-family: serif;
+  font-weight: normal;
+}
+span.icon {
+  background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+}
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 42px;
+  padding-right: 42px;
+  font-size: 14px;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* GOOGLE SIGN-IN CUSTOM BUTTON - END */
+
+
+
   .logon-link{
       color: #92E561;
       text-decoration: underline;
@@ -92,9 +164,7 @@ body{
     padding-left:10px;
   }
   
-  .logon-link:hover{
-      color: #91e561;
-  }
+  
   
   .main-menu-item{
       color: #4F4F4F;   
@@ -103,6 +173,10 @@ body{
       font-weight: lighter;
       vertical-align: middle;
   }
+
+  .main-menu-item:hover{
+    color: #6b9b5ee5;/* rgb(241, 185, 112);*/
+}
 
   #myModalLabel{
       font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
@@ -121,9 +195,9 @@ body{
     font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
     font-weight: lighter;
   }
-  
-  .main-menu-item:hover{
-      color: #6b9b5ee5;/* rgb(241, 185, 112);*/
+
+  .log-in-button:hover{
+    color: #6b9b5ee5;   
   }
   
   .col-w-50{
@@ -151,6 +225,8 @@ body{
       width: 370px;
       background-color: rgb(204,117,1);
   }
+
+  
   
     @keyframes shine {
       to {

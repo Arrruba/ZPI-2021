@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Arrruba 
-Arrruba
-/
-ZTW_Projekt
-Private
-1
-0
-0
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-ZTW_Projekt/index.html
-@Arrruba
-Arrruba work with api
-Latest commit 715d172 on 13 Jun
- History
- 2 contributors
-@Arrruba@MaciejChrzastek
-276 lines (243 sloc)  12.2 KB
-   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,96 +5,85 @@ Latest commit 715d172 on 13 Jun
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design for Bootstrap</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <title>Czysty Wrocław</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--   <link rel="stylesheet" href="css/bootstrap.css"> -->
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="css/mdb.min.css">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
     <link rel="stylesheet" href="css/custom.css">
 
     <!-- GOOGLE SIGN IN-->
-    <meta name="google-signin-client_id" content="3251389578-5r5b36uskhbqpdpviiecf4jkeohgk43j.apps.googleusercontent.com" />
-    <script src="https://apis.google.com/js/platform.js" async defer>
-    </script>
+    <meta name="google-signin-client_id"
+        content="579430523466-oikc55j7b93kjgk5d6e2q2otkm37s297.apps.googleusercontent.com" />
+    <script src="https://apis.google.com/js/platform.js" async defer> </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
 
 </head>
 
 <body>
     <!-- Start your project here-->
 
+
+
+
     <!-- Main Navigation-->
     <header>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style=" background-color: black;">
-            <div>
-                <div class="container">
-                    <!-- Navbar brand -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top w-100"
+            style=" background-color: white; box-shadow: none;">
+            <div class="w-100">
+                <div class="container w-100" style="height: 4%; margin-left:0;">
                     <a class="navbar-brand" href="index.html">
-                        <img src="img/quiz_icon.png" style="height: 2em;">
+                        <img src="img/wroclaw logo.png" style="height: 2.5em;">
                     </a>
-                    <div id="singIn" class="g-signin2" style="float: right; right: 1em; position: absolute; margin-right: 0;" data-onsuccess="onSignIn"></div>
-                    <div id="content"  style="float: right; right: 1em; position: absolute; margin-right: 9%; color: white; min-width: 100px; text-align: center;"> </div>
-                    <a href="#" id="signOut" class="main-menu-item" style="float: right; right: 250px; position: absolute; margin-right: 0; display: none; text-align: right;" onclick="signOut()">SIGN OUT</a>
 
-                    <script>
-                        function onSignIn(googleUser) {
-                            console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
+                    <div id="signIn" class="logIn main-menu-item"
+                        style="float: right; right: 1em; position: absolute; margin-right: 0; margin-top:-50px; "
+                        data-onsuccess="onSignIn">
+                        <button class="log-in-button" onclick="popup()" data-toggle="modal"
+                            data-target="#centralModal">Zaloguj się</button>
+                    </div>
 
-                            var element = document.querySelector('#content');
-                            var str_short = (googleUser.getBasicProfile().getName()).split(' ');
-                            var str="";
-                            str_short.forEach(element => {
-                                str = str+element[0];
-                            });
-                            element.innerText = str;//googleUser.getBasicProfile().getName();
+                    <div class="dropdown" style="float: right; right: 1em; position: absolute; margin-right: 0%;">
+                        <button id="content" class="log-in-button dropdown-toggle" data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                            style="margin-top: -50px; color: #4F4F4F; min-width: 100px; text-align: center; display:none;"></button>
+                        <ul class="dropdown-menu" aria-labelledby="content">
+                            <li>
+                                <a class="dropdown-item main-menu-item" href="#" onclick="signOut()">Wyloguj się</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                            var image = document.createElement('img');
-                            image.setAttribute('src', googleUser.getBasicProfile().getImageUrl());
-                            image.setAttribute('height',"30px");
-                            image.style.marginLeft="7px";
-                            element.append(image);
-                            document.getElementById('signOut').style.display = 'block';
 
-                            var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
-                            $.ajax({
-                                url: ulr_add_user,
-                                type: "POST",
-                                contentType: "application/json; charset=utf-8",
-                            });
-
-                        }
-
-                        function signOut() {
-                            gapi.auth2.getAuthInstance().signOut().then(function() {
-                                console.log('User signed out');
-                                var element = document.querySelector('#content');
-                                element.innerHTML = '';
-                                document.getElementById('signOut').style.display = 'none';
-                            });
-                        }
-                    </script>
-                    <!--
-                    <a class="logon-link" href="login.html" style="float: right; right: 2em; position: absolute;">zaloguj...</a>
-                    <a href="#" style="float: right; right: 2em; position: absolute; display: none;"><img src="img/account_icon.png" style=" height: 2em;" alt=""></a>
-                    -->
                 </div>
 
                 <div class="container w-100">
-                    <div class="w-100" style="background-color: black; margin: 0;min-width: 1000px;">
-                        <table class="w-100">
+                    <div class="w-100" style=" margin: 0;min-width: 1000px;">
+                        <table class="w-100" style="table-layout: fixed;">
                             <tbody class="w-100">
-                                <tr class="w-100">
-                                    <td scope="col" style="text-align: center;min-width: 750px;"><a href="dostepne_utwory.html" class="main-menu-item">Przeglądaj dostępne utwory</a></td>
-                                    <td scope="col" style="text-align: center; border-left: 1px solid white;min-width: 750px;"><a href="statistics.html" class="main-menu-item">Statystyki</a></td>
+                                <tr class="w-100" style="display: flex; justify-content: space-between;">
+                                    <td scope="col" style="text-align: center;"><a href="#"
+                                            class="main-menu-item">Aktualności</a></td>
+                                    <td scope="col" class="main-menu-item"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
+                                            class="main-menu-item">Inicjatywy Obywatelskie</a></td>
+                                    <td scope="col" class="main-menu-item"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
+                                            class="main-menu-item">Dofinansowania</a></td>
+                                    <td scope="col" class="main-menu-item"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
+                                            class="main-menu-item">Strefa Firm</a></td>
                                 </tr style="border-right: 1px solid white;">
                             </tbody>
                         </table>
@@ -139,128 +96,64 @@ Latest commit 715d172 on 13 Jun
     </header>
     <!-- /Main Navigation-->
 
+    <!--------------------------------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------------------------------------------------->
+
 
     <!-- Main Layout-->
-    <main class="mt-9" style="margin-top: -600px; padding-bottom: 70px;">
-
-        <div class="container my-container-color">
-            <!--Section: LastTravels-->
-            <section id="lastTravels" class="text-center">
-
-                <!--Grid row-->
-                <div class="row" style=" display: flex; justify-content: space-around; margin-top: 50px;">
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4">
-                        <div class="view overlay z-depth-1-half">
-                            <img src="img/rules_log.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask text-na-maske" style="background-color: rgba(0, 0, 0, 0.5);">
-                                    <p class="image-title">ZASADY</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="view overlay z-depth-1-half">
-                            <img src="img/songs_log.png" class="img-fluid" alt="">
-                            <a href="dostepne_utwory.html">
-                                <div class="mask text-na-maske" style="background-color: rgba(0, 0, 0, 0.5);">
-                                    <p class="image-title">PIOSENKI</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="view overlay z-depth-1-half">
-                            <img src="img/stats_log.png" class="img-fluid" alt="">
-                            <a href="statistics.html">
-                                <div class="mask text-na-maske" style="background-color: rgba(0, 0, 0, 0.5);">
-                                    <p class="image-title">STATYSTYKI</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-                </div>
-                <!--Grid row-->
-
-            </section>
-            <!--Section: LastTravels-->
+    <main class=" w-100 h-100">
 
 
-            <div style="margin-top:50px;">
-                <h2 class="color-accent">Top 5 piosenek</h2>
+        <div class="container my-container" style="min-height: 550px;">
 
-                <!--
-                <table class="table align-middle table-hover">
-                    <thead>
-                        <tr>
-                            <th class="col1" scope="col">Numer na liście</th>
-                            <th class="col2" scope="col">Tytuł</th>
-                            <th class="col2" scope="col">Wykonawca</th>
-                            <th scope="col">Liczba odsłuchań</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="row1">
-                            <th class="col1" scope="row">1.</th>
-                            <td class="col2" id="row1-title">Sit</td>
-                            <td class="col2" id="row1-author">Amet</td>
-                            <td id="row1-number">1002</td>
-                        </tr>
-                        <tr id="row2">
-                            <th class="col1" scope="row">2.</th>
-                            <td class="col2" id="row2-title">Adipisicing</td>
-                            <td class="col2" id="row2-author">Elit</td>
-                            <td id="row2-number">954</td>
-                            </td>
-                        </tr>
-                        <tr id="row3">
-                            <th class="col1" scope="row">3.</th>
-                            <td class="col2" id="row3-title">Hic</td>
-                            <td class="col2" id="row3-author">Fugiat</td>
-                            <td id="row3-number">657</td>
-                        </tr>
-                        <tr id="row4">
-                            <th class="col1" scope="row">4.</th>
-                            <td class="col2" id="row4-title">Hic</td>
-                            <td class="col2" id="row4-author">Fugiat</td>
-                            <td id="row4-number">657</td>
-                        </tr>
-                        <tr id="row5">
-                            <th class="col1" scope="row">5.</th>
-                            <td class="col2" id="row5-title">Hic</td>
-                            <td class="col2" id="row5-author">Fugiat</td>
-                            <td id="row5-number">657</td>
-                        </tr>
-                    </tbody>
-                </table>
-            -->
+            <div>
 
-                <div id = "tab"></div>
+
             </div>
-
         </div>
+
+
+
+        <!-- Central Modal Medium data-toggle="modal" data-target="#centralModal"-->
+        <div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog w-100" role="document">
+                <div class="modal-content" style="padding: 10px; border-radius: 0;">
+                    <div class="w-100" style="text-align: center;">
+                        <button type="button" id="close-modal" class=" close-button" data-dismiss="modal"
+                            aria-label="Close">x</button>
+                        <div class="w-100">
+                            <div style="display:inline-block;">
+                                <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
+                            </div>
+                            <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
+                        </div>
+                    </div>
+                    <div id="modalBody" style=" font-size: 1em; font-weight: lighter; margin-top: 60px; text-align: center;">
+                        <input class="input-login" type="text" placeholder="login" name="username" required>
+                        <input class="input-login" type="password" placeholder="hasło" name="password" required>
+
+                    </div>
+                    <button type="submit" class="btn modal-button" data-dismiss="modal"
+                        style="margin-top: 40px; ">Zaloguj</button>
+                    <div class="g-signin2 google-signIn-button" style="margin-top: 10px; min-width: 500px;"
+                        data-width="380px;" span-text="Zaloguj przez Google" data-onsuccess="onSignIn"></div>
+                   
+
+                    <p class="modal-title" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;">
+                        Nie masz jeszcze konta? <a href="register.html" class="logon-link">Zarejestruj się</a></p>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Central Modal Medium -->
+
 
     </main>
     <!-- /Main Layout-->
 
 
-    <!-- Footer -->
-    <footer>
-        <div>Zaawansowane Technologie Webowe 2021 - Chrząstek, Rudzka</div>
-    </footer>
-    <!-- /Footer -->
-
-    <!-- End your project here-->
     <!-- jQuery -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
@@ -270,39 +163,8 @@ Latest commit 715d172 on 13 Jun
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript" src="index.js"></script>
 
-    <script type="text/javascript">
-        /* chart.js chart examples */
-
-        // chart colors
-        var colors = ['#007bff', '#28a745', '#333333', '#c3e6cb', '#dc3545', '#6c757d'];
-
-        /* bar chart */
-        var chBar = document.getElementById("chBar");
-        if (chBar) {
-            new Chart(chBar, {
-                type: 'bar',
-                data: {
-                    labels: ['Chorwacja', 'Chiny', 'Egipt', 'Grecja', 'Islandia', 'Włochy'],
-                    datasets: [{
-                        data: [889, 445, 483, 692, 503, 689],
-                        backgroundColor: colors[0]
-                    }]
-                },
-                options: {
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        xAxes: [{
-                            barPercentage: 0.4,
-                            categoryPercentage: 0.5
-                        }]
-                    }
-                }
-            });
-        }
+    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js">
     </script>
-    <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 </body>
 
 </html>
