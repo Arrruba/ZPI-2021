@@ -9,6 +9,14 @@ body{
     background-attachment: fixed;
     font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
   }
+
+  form div{
+    margin-top: 30px;
+  }
+
+  form div label{
+    margin-bottom: 5px;
+  }
   
   .my-container{
     background-color: rgba(255, 255, 255, 0.76);
@@ -148,6 +156,11 @@ span.buttonText {
       color: #92E561;
       text-decoration: underline;
   }
+  
+  .logon-link:hover{
+    color: #68aa43;
+    text-decoration: underline;
+}
 
   .input-login{
     width: 80%;
@@ -178,6 +191,10 @@ span.buttonText {
     color: #6b9b5ee5;/* rgb(241, 185, 112);*/
 }
 
+#email-input{
+  display: none;
+  margin:auto;
+}
   #myModalLabel{
       font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
       font-weight: lighter;

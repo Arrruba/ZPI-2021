@@ -59,5 +59,30 @@ function onSignIn(googleUser) {
         });
     }
 
-
+function remindPassword(){
+    document.getElementById('username-input').style.display = 'none';
+    document.getElementById('password-input').style.display = 'none';
+    document.getElementById('email-input').style.display = 'block';
+    document.getElementById('dont-remember-pass').style.display = 'none';
+    document.getElementById('send-reminder-btn').style.display = 'block';
+    document.getElementById('classic-login').style.display = 'none';
+    document.getElementById('google-login').style.marginTop="50px";
+    document.getElementById('return-to-traditional-login').style.display='block';
+    document.getElementById('link-to-register').style.marginTop="-3px";
+}
     
+function resetVisibility(){
+    document.getElementById('username-input').style.display = 'block';
+    document.getElementById('password-input').style.display = 'block';
+    document.getElementById('username-input').style.margin = 'auto';
+    document.getElementById('password-input').style.margin = 'auto';
+    document.getElementById('password-input').style.marginTop = '10px';
+    document.getElementById('email-input').style.display = 'none';
+    document.getElementById('dont-remember-pass').style.display = 'block';
+    document.getElementById('send-reminder-btn').style.display = 'none';
+    document.getElementById('classic-login').style.display = 'block';
+    document.getElementById('google-login').style.marginTop="10px";
+    document.getElementById('return-to-traditional-login').style.display='none';
+    document.getElementById('link-to-register').style.marginTop="60px";
+
+}

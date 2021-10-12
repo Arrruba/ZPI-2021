@@ -105,55 +105,40 @@
 
         <div class="container my-container" style="min-height: 550px;">
 
-            <div>
-                <div class="post">
-                    <h6>Lorem ipsum</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
+            <h6 id="user-login" style="margin-top: 50px; text-align: center; font-weight: lighter;">Profil Użytkownika</h4>
+            <h2 id="user-login" style=" text-align: center;">UserOne</h2>
 
-                <div class="post">
-                    <h6>Lorem ipsum ...ipsum</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+            <form style="margin-top: 50px;">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Adres e-mail</label>
+                  <input type="email" class="form-control" id="form-email" placeholder="name@example.com">
                 </div>
-
-                <div class="post">
-                    <h6>Lorem ipsum ...ipsum...ipsum</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
                 </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Example multiple select</label>
+                  <select multiple class="form-control" id="exampleFormControlSelect2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Example textarea</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+              </form>
 
-            </div>
         </div>
 
 
@@ -187,52 +172,7 @@
                         style="margin-top: 40px; " >Zaloguj</button>
                     <div id="google-login" class="g-signin2 google-signIn-button" style="margin-top: 10px; min-width: 500px;"
                         data-width="380px;" span-text="Zaloguj przez Google" data-onsuccess="onSignIn"></div>
-                   <!--
-                   <script>
-                        function onSignIn1(googleUser) {
-                            // Useful data for your client-side scripts:
-                            var profile = googleUser.getBasicProfile();
-                            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                            console.log('Full Name: ' + profile.getName());
-                            console.log('Given Name: ' + profile.getGivenName());
-                            console.log('Family Name: ' + profile.getFamilyName());
-                            console.log("Image URL: " + profile.getImageUrl());
-                            console.log("Email: " + profile.getEmail());
 
-                            // The ID token you need to pass to your backend:
-                            var id_token = googleUser.getAuthResponse().id_token;
-                            console.log("ID Token: " + id_token);
-
-
-                            console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
-
-                            var element = document.querySelector('#content');
-                            var str_short = (googleUser.getBasicProfile().getName()).split(' ');
-                            var str = "";
-                            str_short.forEach(element => {
-                                str = str + element[0];
-                            });
-                            element.innerText = str; //googleUser.getBasicProfile().getName();
-
-                            var image = document.createElement('img');
-                            image.setAttribute('src', googleUser.getBasicProfile().getImageUrl());
-                            image.setAttribute('height', "30px");
-                            image.style.marginLeft = "7px";
-                            element.append(image);
-                            document.getElementById('signIn').style.display = 'none';
-                            document.getElementById('content').style.display = 'block';
-                            document.getElementById('signOut').style.display = 'block';
-                            /*
-                            var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
-                            $.ajax({
-                                url: ulr_add_user,
-                                type: "POST",
-                                contentType: "application/json; charset=utf-8",
-                            });*/
-
-                        }
-                    </script>
-                -->
                 <a class="logon-link" id="return-to-traditional-login" onclick="resetVisibility()"
                 style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif; display:none; cursor:pointer;"
                 >Powrót do logowania tradycyjnego</a>
