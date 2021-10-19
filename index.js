@@ -72,6 +72,7 @@ function remindPassword(){
 }
     
 function resetVisibility(){
+    document.getElementById('loginInput').style.display = 'block';
     document.getElementById('username-input').style.display = 'block';
     document.getElementById('password-input').style.display = 'block';
     document.getElementById('username-input').style.margin = 'auto';
@@ -81,8 +82,30 @@ function resetVisibility(){
     document.getElementById('dont-remember-pass').style.display = 'block';
     document.getElementById('send-reminder-btn').style.display = 'none';
     document.getElementById('classic-login').style.display = 'block';
+    document.getElementById('google-login').style.display="block";
     document.getElementById('google-login').style.marginTop="10px";
     document.getElementById('return-to-traditional-login').style.display='none';
+    document.getElementById('link-to-register').style.display="block";
     document.getElementById('link-to-register').style.marginTop="60px";
+    document.getElementById('registrationHelper').style.display='none';
 
 }
+
+function redirectRegisterCitizen(){
+    window.location.href = 'register-citizen.html';
+}
+
+function redirectRegisterCompany(){
+    window.location.href = 'register-company.html';
+}
+
+function registrationStart(){
+    document.getElementById('registrationHelper').style.display='block';
+    document.getElementById('loginInput').style.display = 'none';
+    document.getElementById('dont-remember-pass').style.display = 'none';
+    document.getElementById('classic-login').style.display = 'none';
+    document.getElementById('google-login').style.display="none";
+    document.getElementById('link-to-register').style.display="none";
+}
+
+

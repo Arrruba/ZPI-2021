@@ -111,18 +111,36 @@
             <form style="margin-top: 50px;">
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Adres e-mail</label>
-                  <input type="email" class="form-control" id="form-email" placeholder="name@example.com">
+                  <input type="email" class="form-control" id="form-email" placeholder="jan.kowalski@example.com">
                 </div>
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Example select</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+
+                <h5 style="margin-top: 50px;">Dane Adresowe</h5>
+
+                  <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Ulica</label>
+                        <input type="text" class="form-control" id="form-street" placeholder="Uliczna" required>
+                    </div>
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Numer budynku / lokalu</label>
+                        <input type="text" class="form-control" id="form-address-number" placeholder="159" required>      
+                    </div>
+                  </div>
+
+                  <label for="exampleFormControlInput1">Kod pocztowy</label>
+                  <input type="text" class="form-control" id="form-postcode" placeholder="00-000" pattern="^\d{2}-\d{3}$" required>
+
+                    
+                <div class="form-group" >
+                  <label for="exampleFormControlSelect1">Dzielnica</label>
+                  <select class="form-control" id="exampleFormControlSelect1" style="background-color: #91e5612c;">
+                    <option>Wybierz dzielnicę</option>
+                    <option>Fabryczna</option>
+                    <option>Krzyki</option>
+                    <option>Stare Miasto</option>
                   </select>
                 </div>
+                <!--
                 <div class="form-group">
                   <label for="exampleFormControlSelect2">Example multiple select</label>
                   <select multiple class="form-control" id="exampleFormControlSelect2">
@@ -136,19 +154,23 @@
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Example textarea</label>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
+                </div>-->
+                <div class="w-100" style="text-align: right; margin-top: 70px;">
+                <button type="submit" class="btn btn-primary modal-button" style="margin: auto; width: 30%; ">Zapisz zmiany</button>
+                    </div>
               </form>
 
         </div>
 
 
-
         <!-- Central Modal Medium data-toggle="modal" data-target="#centralModal"-->
-        <div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog w-100" role="document">
                 <div class="modal-content" style="padding: 10px; border-radius: 0;">
                     <div class="w-100" style="text-align: center;">
-                        <button type="button" id="close-modal" class=" close-button" data-dismiss="modal" aria-label="Close" onclick="resetVisibility()">x</button>
+                        <button type="button" id="close-modal" class=" close-button" data-dismiss="modal"
+                            aria-label="Close" onclick="resetVisibility()">x</button>
                         <div class="w-100">
                             <div style="display:inline-block;">
                                 <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
@@ -156,37 +178,113 @@
                             <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
                         </div>
                     </div>
+
+
                     <div id="modalBody"
                         style=" font-size: 1em; font-weight: lighter; margin-top: 60px; text-align: center;">
 
-                        <input id="username-input" class="input-login" type="text" placeholder="login" name="username" required>
-                        <input id="password-input" class="input-login" type="password" placeholder="hasło" name="password">
-                        <input id="email-input" class="input-login" type="email" placeholder="adres e-mail" name="email">
+                        <div class="w-100" id = "loginInput">
+                        <input id="username-input" class="input-login" type="text" placeholder="login" name="username"
+                            required>
+                        <input id="password-input" class="input-login" type="password" placeholder="hasło"
+                            name="password">
+                        </div>
+                        <!-- DO PRZYPOMNIENIA HASŁA-->
+                        <div class="w-100" id="passwordReminder">
+                        <input id="email-input" class="input-login" type="email" placeholder="adres e-mail"
+                            name="email">
+                        <p id="dont-remember-pass" class="main-menu-item"
+                            style="cursor: pointer; align-self: center; margin-top: 15px; font-size: 0.75em;"
+                            onclick="remindPassword()">Nie pamiętam hasła</p>
+                        <button id="send-reminder-btn" class="btn modal-button"
+                            style="margin-top: 15px; display:none;">Wyślij przypomnienie</button>
+                        </div>
+                        <!-- DO PRZYPOMNIENIA HASŁA - KONIEC-->
 
-                        <p id="dont-remember-pass" class="main-menu-item" style="cursor: pointer; align-self: center; margin-top: 15px; font-size: 0.75em;" onclick="remindPassword()">Nie pamiętam hasła</p>
-                        <button id="send-reminder-btn" class="btn modal-button" style="margin-top: 15px; display:none;">Wyślij przypomnienie</button>
-               
+                        <!-- DO REJESTRACJI -->
+                        <div id="registrationHelper" class="w-75" style="margin: auto; display: none;">
+                        <h6 style="font-weight:normal;">Zarejestruj się jako...</h6>
+                        <table class="w-100" style="margin-top: 40px;">
+                            <tr style="height: 150px; color: white;">
+                                <td class="td-clickable" onclick="redirectRegisterCitizen()">
+                                    <img src="img/dom_logo.png" style="width: 50%;">
+                                    <br>OBWATEL
+                                </td>
+                                <td style=" min-width: 10%;"></td>
+                                <td class="td-clickable" onclick="redirectRegisterCompany()">
+                                    <img src="img/praca_logo.png" style="width: 50%;">
+                                    <br>FIRMA
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="modal-title" id="link-to-login" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
+                        ">Masz już konto? <a href="#" class="logon-link" onclick="resetVisibility()">Zaloguj się</a></p>
+                        </div>
+                        <!-- DO REJESTRACJI - KOIEC-->
 
                     </div>
                     <button id="classic-login" type="submit" class="btn modal-button" data-dismiss="modal"
-                        style="margin-top: 40px; " >Zaloguj</button>
-                    <div id="google-login" class="g-signin2 google-signIn-button" style="margin-top: 10px; min-width: 500px;"
-                        data-width="380px;" span-text="Zaloguj przez Google" data-onsuccess="onSignIn"></div>
+                        style="margin-top: 40px; ">Zaloguj</button>
+                    <div id="google-login" class="g-signin2 google-signIn-button"
+                        style="margin-top: 10px; min-width: 500px;" data-width="380px;" span-text="Zaloguj przez Google"
+                        data-onsuccess="onSignIn"></div>
+                    <!--
+                   <script>
+                        function onSignIn1(googleUser) {
+                            // Useful data for your client-side scripts:
+                            var profile = googleUser.getBasicProfile();
+                            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                            console.log('Full Name: ' + profile.getName());
+                            console.log('Given Name: ' + profile.getGivenName());
+                            console.log('Family Name: ' + profile.getFamilyName());
+                            console.log("Image URL: " + profile.getImageUrl());
+                            console.log("Email: " + profile.getEmail());
 
-                <a class="logon-link" id="return-to-traditional-login" onclick="resetVisibility()"
-                style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif; display:none; cursor:pointer;"
-                >Powrót do logowania tradycyjnego</a>
+                            // The ID token you need to pass to your backend:
+                            var id_token = googleUser.getAuthResponse().id_token;
+                            console.log("ID Token: " + id_token);
 
-                    <p class="modal-title" id="link-to-register"
-                        style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
-                        ">Nie masz jeszcze konta? <a href="register.html" class="logon-link">Zarejestruj się</a></p>
+
+                            console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
+
+                            var element = document.querySelector('#content');
+                            var str_short = (googleUser.getBasicProfile().getName()).split(' ');
+                            var str = "";
+                            str_short.forEach(element => {
+                                str = str + element[0];
+                            });
+                            element.innerText = str; //googleUser.getBasicProfile().getName();
+
+                            var image = document.createElement('img');
+                            image.setAttribute('src', googleUser.getBasicProfile().getImageUrl());
+                            image.setAttribute('height', "30px");
+                            image.style.marginLeft = "7px";
+                            element.append(image);
+                            document.getElementById('signIn').style.display = 'none';
+                            document.getElementById('content').style.display = 'block';
+                            document.getElementById('signOut').style.display = 'block';
+                            /*
+                            var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
+                            $.ajax({
+                                url: ulr_add_user,
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                            });*/
+
+                        }
+                    </script>
+                -->
+                    <a class="logon-link" id="return-to-traditional-login" onclick="resetVisibility()"
+                        style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif; display:none; cursor:pointer;">Powrót
+                        do logowania tradycyjnego</a>
+
+                    <p class="modal-title" id="link-to-register" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
+                        ">Nie masz jeszcze konta? <a href="#" id="regiLink" class="logon-link" onclick="registrationStart()">Zarejestruj się</a></p>
                 </div>
             </div>
         </div>
 
         <!-- Central Modal Medium -->
-
-
     </main>
     <!-- /Main Layout-->
 

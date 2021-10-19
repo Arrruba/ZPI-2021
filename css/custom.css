@@ -16,6 +16,22 @@ body{
 
   form div label{
     margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  .form-control{
+    border-color: #91e561;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+  }
+
+  .form-control:focus{
+    border-color: #91e561;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 3px;
+    box-shadow: none;
   }
   
   .my-container{
@@ -98,6 +114,17 @@ body{
     color: white;
     border-style:none;
     background-color: #92E561;
+    transition-duration: 1s;
+  }
+
+  .td-clickable{
+    background-color: #91e561c2; 
+    width: 45%; 
+    cursor: pointer;
+  }
+
+  .td-clickable:hover{
+    background-color: #91e561; 
   }
 
   .google-signIn-button{
@@ -168,19 +195,17 @@ span.buttonText {
     border-color: #91e561;
     border-width: 1px;
     color: #4F4F4F;
-    font-style: italic;
     border-style: solid;
     border-radius: 3px;
+    font-style: italic;
     margin-left: auto;
     margin-top:10px;
     font-weight: lighter;
     padding-left:10px;
-  }
-  
-  
+  }  
   
   .main-menu-item{
-      color: #4F4F4F;   
+      color: #000000;   
       font-family: "Segoe UI", Verdana, Helvetica, sans-serif;
       /*text-transform: uppercase;*/
       font-weight: lighter;
