@@ -16,6 +16,10 @@ window.onload= function onload(){
                 var htmlc='';
                 
                 $.each(results.initiativeList, function(key,item){
+                    var descript = (item.description).substring(0,100);
+                    if((item.description).length>=100)
+                        descript +="...";
+
                     htmlc += '<div class="my-list-element" style="margin-top:2%;">';
                     htmlc += '<table class="table my-tab-color w-100">';
                     htmlc += '<tbody id="tab-body">';
@@ -23,7 +27,7 @@ window.onload= function onload(){
                              htmlc += '<td id="row'+id+'-title" style="font-weight:bold; font-size:1.25em;">'+item.title+'</td>';
                              htmlc += '<td id="row'+id+'-districtName" class="city-name-list" >'+item.district.name+'</td>';
                          htmlc += '</tr><tr>';
-                             htmlc += '<td id="row'+id+'-description">'+item.description+'</td>';
+                             htmlc += '<td id="row'+id+'-description">'+descript+'</td>';
                         htmlc += '</tr>';
                     htmlc += '</tr>';
                     htmlc += '<tr></tr></tbody></table></div>';

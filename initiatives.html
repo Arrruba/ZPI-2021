@@ -103,6 +103,13 @@
     <!--------------------------------------------------------------------------------------------------------------------------------------->
     <!--------------------------------------------------------------------------------------------------------------------------------------->
 
+    <div class="w-100" style=" z-index: 5; position: sticky; top: 90%;">
+        <a class="btn btn-lg btn-floating"
+            style="background-color: #91e561; height: 70px !important; width: 70px !important; float: right; margin-right: 50px;">
+                <i class="fas fa-check fa-2x" style="color: white; margin-top: 17%; font-weight: light;"
+                data-toggle="modal" data-target="#voteModal"></i></a>
+    </div>
+
 
     <!-- Main Layout-->
     <main class=" w-100 h-100">
@@ -111,14 +118,19 @@
         <div class="container">
 
             <table class="w-100" style="color: #5C8E4E; margin: auto; margin-top: 12%; ">
-            <td class="w-90"><h3 style="color: #5C8E4E;">Rozpatrywane inicjatywy obywatelskie</h3></td>
-            <td style="text-align: end;"><img src="img/setting-lines.png"></td>
-            <td style="text-align: end;"><img src="img/edit.png"></td>
+                <td class="w-90">
+                    <h3 style="color: #5C8E4E;">Rozpatrywane inicjatywy obywatelskie</h3>
+                </td>
+                <td style="text-align: end;"><img src="img/setting-lines.png"></td>
+                <td style="text-align: end;"><img src="img/edit.png"></td>
             </table>
-            <div id="list-section" style="margin: auto; margin-top: 4%; ">
-                
-                
-                <!--<table class="table my-tab-color w-90">
+
+
+
+            <div id="list-section" style="margin: auto; margin-top: 4%; margin-bottom: 4%; ">
+
+                <!--
+                <table class="table my-tab-color w-90">
                     <tbody id="tab-body">
                         <tr class="my-list-element">
                         <tr>
@@ -130,9 +142,13 @@
                         </tr>
                         </tr>
                     </tbody>
-                </table> -->
+                </table> 
+            -->
+
             </div>
-            <a class="btn btn-lg btn-floating" style="background-color: #84e06b; height: 60px !important; width: 60px !important; float: right; position: absolute;"><i class="fas fa-check fa-lg" style="color: white; margin-top: 15%; font-weight: light;"></i></a>
+
+
+
 
         </div>
 
@@ -217,6 +233,30 @@
         </div>
 
         <!-- Central Modal Medium -->
+
+
+        <div class="modal fade w-100" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog w-100" role="document">
+                <div class="modal-content" style=" border-radius: 0; width: 120%; margin-left: -10%;">
+                    <div class="w-100" style="text-align: center;">
+                        <img src="img/notification leaf top.png" style="height: 130px; float: left; ">
+                        <div class="w-100">
+                            <div style="display:inline-block; margin-top: 50px; margin-left: -80px;">
+                                <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
+                            </div>
+                            <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
+                            <div style="margin-top: 70px;">
+                                Czy potwierdzasz swój wybór inicjatyw?
+                            </div>
+                            <div class="w-90 row" style="margin-top: 70px; margin-bottom: -60px; margin-left: 1%;">
+                                <button class="col btn modal-button" id="confirm-choice-btn">tak</button>
+                                <button class="col btn modal-button" id ="dismiss-choice-btn">anuluj</button>
+                            </div>
+                            <img src="img/notification leaf bottom.png" style="height: 130px; float: right; ">
+                        </div>
+                    </div>
+
 
 
     </main>
