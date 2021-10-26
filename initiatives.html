@@ -108,86 +108,34 @@
     <main class=" w-100 h-100">
 
 
-        <div class="container my-container" style="min-height: 550px;">
+        <div class="container">
 
-            <h6 id="user-login" style="margin-top: 50px; text-align: center; font-weight: lighter;">Profil Użytkownika
-                </h4>
-                <h2 id="user-login" style=" text-align: center;">UserOne</h2>
-
-                <form style="margin-top: 50px;">
-                    <div class="form-group">
-                        <label for="form-email">Adres e-mail</label>
-                        <input type="email" class="form-control" id="form-email" style="background-color: #91e5610a;" placeholder="jan.kowalski@example.com" disabled>
-                    </div>
-
-                    <h5 style="margin-top: 50px;">Zmiana hasła</h5>
-
-                    <div class="form-group">
-                        <label for="form-old-pass">Stare hasło</label>
-                        <input type="password" class="form-control" id="form-old-pass" placeholder="******">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="form-new-pass">Nowe hasło</label>
-                        <input type="password" class="form-control" id="form-new-pass" placeholder="******">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="form-new-pass-repeated">Powtórz hasło</label>
-                        <input type="password" class="form-control" id="form-new-pass-repeated" placeholder="******">
-                    </div>
-
-                    <h5 style="margin-top: 50px;">Dane adresowe</h5>
-
-                    <div class="row">
-                        <div class="col">
-                            <label for="form-street">Ulica</label>
-                            <input type="text" class="form-control" id="form-street" placeholder="Uliczna" required>
-                        </div>
-                        <div class="col">
-                            <label for="form-address-number">Numer budynku / lokalu</label>
-                            <input type="text" class="form-control" id="form-address-number" placeholder="159" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="form-postcode">Kod pocztowy</label>
-                        <input type="text" class="form-control" id="form-postcode" placeholder="00-000"
-                            pattern="^\d{2}-\d{3}$" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Dzielnica</label>
-                        <select class="form-control" id="exampleFormControlSelect1"
-                            style="background-color: #91e5612c;">
-                            <option>Wybierz dzielnicę</option>
-                            <option>Fabryczna</option>
-                            <option>Krzyki</option>
-                            <option>Stare Miasto</option>
-                        </select>
-                    </div>
-                    <!--
-                <div class="form-group">
-                  <label for="exampleFormControlSelect2">Example multiple select</label>
-                  <select multiple class="form-control" id="exampleFormControlSelect2">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Example textarea</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>-->
-                    <div class="w-100" style="text-align: right; margin-top: 70px;">
-                        <button type="submit" class="btn btn-primary modal-button"
-                            style="margin: auto; width: 30%; ">Zapisz zmiany</button>
-                    </div>
-                </form>
+            <table class="w-100" style="color: #5C8E4E; margin: auto; margin-top: 12%; ">
+            <td class="w-90"><h3 style="color: #5C8E4E;">Rozpatrywane inicjatywy obywatelskie</h3></td>
+            <td style="text-align: end;"><img src="img/setting-lines.png"></td>
+            <td style="text-align: end;"><img src="img/edit.png"></td>
+            </table>
+            <div id="list-section" style="margin: auto; margin-top: 4%; ">
+                
+                
+                <!--<table class="table my-tab-color w-90">
+                    <tbody id="tab-body">
+                        <tr class="my-list-element">
+                        <tr>
+                            <td class="col2 my-list-element" id="row-title">'+item.title+'</td>
+                            <td class="col2" id="row-districtName">'+item.district.name+'</td>
+                        </tr>
+                        <tr>
+                            <td id="row-description">'+item.description+'</td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </div>
+            <a class="btn btn-lg btn-floating" style="background-color: #84e06b; height: 60px !important; width: 60px !important; float: right; position: absolute;"><i class="fas fa-check fa-lg" style="color: white; margin-top: 15%; font-weight: light;"></i></a>
 
         </div>
+
 
 
         <!-- Central Modal Medium data-toggle="modal" data-target="#centralModal"-->
@@ -256,52 +204,7 @@
                     <div id="google-login" class="g-signin2 google-signIn-button"
                         style="margin-top: 10px; min-width: 500px;" data-width="380px;" span-text="Zaloguj przez Google"
                         data-onsuccess="onSignIn"></div>
-                    <!--
-                   <script>
-                        function onSignIn1(googleUser) {
-                            // Useful data for your client-side scripts:
-                            var profile = googleUser.getBasicProfile();
-                            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                            console.log('Full Name: ' + profile.getName());
-                            console.log('Given Name: ' + profile.getGivenName());
-                            console.log('Family Name: ' + profile.getFamilyName());
-                            console.log("Image URL: " + profile.getImageUrl());
-                            console.log("Email: " + profile.getEmail());
 
-                            // The ID token you need to pass to your backend:
-                            var id_token = googleUser.getAuthResponse().id_token;
-                            console.log("ID Token: " + id_token);
-
-
-                            console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
-
-                            var element = document.querySelector('#content');
-                            var str_short = (googleUser.getBasicProfile().getName()).split(' ');
-                            var str = "";
-                            str_short.forEach(element => {
-                                str = str + element[0];
-                            });
-                            element.innerText = str; //googleUser.getBasicProfile().getName();
-
-                            var image = document.createElement('img');
-                            image.setAttribute('src', googleUser.getBasicProfile().getImageUrl());
-                            image.setAttribute('height', "30px");
-                            image.style.marginLeft = "7px";
-                            element.append(image);
-                            document.getElementById('signIn').style.display = 'none';
-                            document.getElementById('content').style.display = 'block';
-                            document.getElementById('signOut').style.display = 'block';
-                            /*
-                            var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
-                            $.ajax({
-                                url: ulr_add_user,
-                                type: "POST",
-                                contentType: "application/json; charset=utf-8",
-                            });*/
-
-                        }
-                    </script>
-                -->
                     <a class="logon-link" id="return-to-traditional-login" onclick="resetVisibility()"
                         style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif; display:none; cursor:pointer;">Powrót
                         do logowania tradycyjnego</a>
@@ -314,6 +217,8 @@
         </div>
 
         <!-- Central Modal Medium -->
+
+
     </main>
     <!-- /Main Layout-->
 
@@ -327,8 +232,8 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="initiatives.js"></script>
 
-    <!--  <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"> -->
     </script>
 </body>
 

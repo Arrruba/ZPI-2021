@@ -36,7 +36,13 @@ function clickRegister(){
         
     }
 
-    if (num_invalid==0){
+    const check_bx = document.getElementById('regulaminCheck');
+    var is_checked = check_bx.checked;
+
+    if(!is_checked){
+        window.alert("Musisz zaakceptować regulamin");
+    }
+    else if (num_invalid==0 && is_checked){
     document.getElementById('register-form').style.display='none';
     document.getElementById('reg-info').style.display='none';
     document.getElementById('register-info-success').style.display='block';

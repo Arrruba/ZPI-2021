@@ -117,6 +117,20 @@ body{
     transition-duration: 1s;
   }
 
+  .modal-button:active{
+    color: white;
+    border-style:none;
+    background-color: #91e561ef !important;
+    transition-duration: 1s;
+  }
+
+  .modal-button:visited{
+    color: white;
+    border-style:none;
+    background-color: #91e561ef;
+    transition-duration: 1s;
+  }
+
   .td-clickable{
     background-color: #91e561c2; 
     width: 45%; 
@@ -135,6 +149,16 @@ body{
     text-align: center;
     color: white;
     border-style:none;
+  }
+
+
+  .form-check-input:checked{
+    border-color: #91e561 !important;
+    background-color: #91e561 !important;
+  }
+  
+  .form-group{
+    margin-top: 1%;
   }
   
 
@@ -214,6 +238,13 @@ span.buttonText {
 
   .main-menu-item:hover{
     color: #6b9b5ee5;/* rgb(241, 185, 112);*/
+}
+
+.city-name-list{
+  float:right; 
+  font-weight:bold; 
+  font-style:italic; 
+  color: #5C8E4E;
 }
 
 #email-input{
@@ -298,12 +329,22 @@ span.buttonText {
   
   
   .my-tab-color tr th {
-    border-bottom: 2px solid rgb(204,117,1); /* Change the color you want to set */
+    border-bottom: none; 
   }
   
   .my-tab-color tr td {
-    border-bottom: 1px solid rgba(204, 116, 1, 0.274); /* Change the color you want to set */
+    border-bottom: none; 
   }
+
+  .my-list-element{
+     background-color: rgba(255, 255, 255, 0.877); 
+     padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px; 
+    margin: auto;
+    cursor: pointer;
+     }
   
   .w-90{
     width: 90%;
