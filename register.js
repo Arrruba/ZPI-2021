@@ -1,12 +1,12 @@
 var error_count=0;
 
 
-window.onload= function(){
+window.onload= function  onload(){
     console.log("b");
    // document.getElementById("form-email").addEventListener("invalid", increaseErrorCount());
    // document.getElementById("submit-btn").addEventListener("click",clickRegister());
     
-
+   //$(".alert").alert();
 }
 
 function increaseErrorCount(){
@@ -40,12 +40,19 @@ function clickRegister(){
     var is_checked = check_bx.checked;
 
     if(!is_checked){
-        window.alert("Musisz zaakceptować regulamin");
+       // window.alert("Musisz zaakceptować regulamin");
+       document.getElementById('alert').style.display = 'block';
+
+     //  $(".alert").alert();
     }
     else if (num_invalid==0 && is_checked){
     document.getElementById('register-form').style.display='none';
     document.getElementById('reg-info').style.display='none';
     document.getElementById('register-info-success').style.display='block';
+    }
+
+    if(is_checked){
+        document.getElementById('alert').style.display = 'none';
     }
     console.log("error count:"+error_count);
     console.log("num invalid: "+num_invalid);
