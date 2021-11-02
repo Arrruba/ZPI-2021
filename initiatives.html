@@ -80,8 +80,9 @@
                                     <td scope="col" style="text-align: center;"><a href="#"
                                             class="main-menu-item">Aktualności</a></td>
                                     <td scope="col" class="main-menu-item"
-                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
-                                            class="main-menu-item">Inicjatywy Obywatelskie</a></td>
+                                        style="text-align: center; border-left: 1px solid white;"><a
+                                            href="initiatives.html" class="main-menu-item">Inicjatywy Obywatelskie</a>
+                                    </td>
                                     <td scope="col" class="main-menu-item"
                                         style="text-align: center; border-left: 1px solid white;"><a href="#"
                                             class="main-menu-item">Dofinansowania</a></td>
@@ -103,11 +104,11 @@
     <!--------------------------------------------------------------------------------------------------------------------------------------->
     <!--------------------------------------------------------------------------------------------------------------------------------------->
 
-    <div class="w-100" style=" z-index: 5; position: sticky; top: 90%;">
+    <div class="w-100" style=" position: fixed; top: 85%;">
         <a class="btn btn-lg btn-floating"
             style="background-color: #91e561; height: 70px !important; width: 70px !important; float: right; margin-right: 50px;">
-                <i class="fas fa-check fa-2x" style="color: white; margin-top: 17%; font-weight: light;"
-                data-toggle="modal" data-target="#voteModal"></i></a>
+            <i class="fas fa-check fa-2x" style="color: white; margin-top: 17%; font-weight: light;" data-toggle="modal"
+                data-target="#voteModal"></i></a>
     </div>
 
 
@@ -121,9 +122,34 @@
                 <td class="w-90">
                     <h3 style="color: #5C8E4E;">Rozpatrywane inicjatywy obywatelskie</h3>
                 </td>
-                <td style="text-align: end;"><img src="img/setting-lines.png"></td>
-                <td style="text-align: end;"><img src="img/edit.png"></td>
+                <td style="text-align: end;"><img src="img/setting-lines.png" style="cursor: pointer;" alt="Filtrowanie wyników" onclick="showFilter()"></td>
+                <td style="text-align: end;"><img src="img/edit.png" style="cursor: pointer;"></td>
             </table>
+
+            <div id="filter_field" style="background-color: #a3b8b786; height: 100px; margin-top: 40px; display:none;">
+                <div class="w-100" style="text-align: center; vertical-align: middle; display: inline-block;">
+                    <img src="img/notification leaf top.png" style="height: 100px; float: left; ">
+                     Filtruj po dzielnicy: &nbsp&nbsp&nbsp
+
+                        <select id="dropdown-menu-districts" class="w-50" style="height: 40px; border-radius: 3px; border-color: white; outline: white; margin-top: 30px;" aria-label="Default select example">                            
+                          </select>
+                        <!--
+                        <div class="btn-group shadow-0 w-50" style=" margin-top: 30px;">
+                            <button type="button" class="btn dropdown-toggle w-50" data-mdb-toggle="dropdown"
+                                aria-expanded="false"
+                                style="font-style: italic; text-transform: none; color: #5C8E4E; font-size: medium; background-color: white;">
+                                dzielnica
+                            </button>
+                            <ul class="dropdown-menu w-100" id="dropdown-menu-districts">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                            </ul>
+                        
+                        </div >-->
+                        
+                        <img src="img/notification leaf bottom.png" style="height: 100px; float: right; ">
+                </div>
+
+            </div>
 
 
 
@@ -143,15 +169,28 @@
                         </tr>
                     </tbody>
                 </table> 
-            -->
 
+                <table class="table my-tab-color w-90">
+                    <tbody id="tab-body">
+                        <tr class="my-list-element">
+                        <tr>
+                            <td class="col2 my-list-element" id="row-title">'+item.title+'</td>
+                            <td class="col2" id="row-districtName">'+item.district.name+'</td>
+                        </tr>
+                        <tr>
+                            <td id="row-description">'+item.description+'</td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table> 
+            
+            -->
             </div>
 
 
 
 
         </div>
-
 
 
         <!-- Central Modal Medium data-toggle="modal" data-target="#centralModal"-->
@@ -251,7 +290,8 @@
                             </div>
                             <div class="w-90 row" style="margin-top: 70px; margin-bottom: -60px; margin-left: 1%;">
                                 <button class="col btn modal-button" id="confirm-choice-btn">tak</button>
-                                <button class="col btn modal-button" id ="dismiss-choice-btn">anuluj</button>
+                                <button class="col btn modal-button" id="dismiss-choice-btn"
+                                    data-dismiss="modal">anuluj</button>
                             </div>
                             <img src="img/notification leaf bottom.png" style="height: 130px; float: right; ">
                         </div>

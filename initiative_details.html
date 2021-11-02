@@ -108,56 +108,23 @@
     <main class=" w-100 h-100">
 
 
-        <div class="container my-container" style="min-height: 550px;">
+        <div class="container my-container" style="min-height: 550px; padding-top: 50px;">
 
-            <div>
-                <div class="post">
-                    <h6>Lorem ipsum</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
+            <h2 id="initiative-title" style="color: #4f7c42;">Lorem Ipsum</h2>
+            <div class="row" style="margin-top: 40px;">
+                <div id="district-name" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Dzielnica:&nbsp&nbsp</p></div>
+                <div id="cost" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Koszt:&nbsp&nbsp</p></div>
+                <div id="category" class="col"style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Kategoria:&nbsp&nbsp</p></div>
+            </div>
+            <div id="details" style="margin-top: 40px;">
+                <p style="color: #609e4e; font-style: italic;">Opis:</p>
+            </div>
+            <div id="author" style="margin-top: 40px; display: inline-flex;">
+                <p style="color: #609e4e; font-style: italic;">Autor:&nbsp&nbsp</p>
+            </div>
 
-                <div class="post">
-                    <h6>Lorem ipsum ...ipsum</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
-
-                <div class="post">
-                    <h6>Lorem ipsum ...ipsum...ipsum</h6>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
-
+            <div class="w-100" style="text-align: center; margin-top: 70px;">
+                <button type="button" id="submit-btn" class="btn modal-button" style="margin: auto; width: 70%; " onclick="voteOnInitiative()">Zagłosuj na tą inicjatywę</button>
             </div>
         </div>
 
@@ -260,6 +227,8 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="initiative_details.js"></script>
+
 
   <!--  <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"> -->
     </script>

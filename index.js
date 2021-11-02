@@ -1,6 +1,87 @@
 window.onload= function onload(){
-    
-    
+/*
+    var modal_login_register=` <div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog w-100" role="document">
+        <div class="modal-content" style="padding: 10px; border-radius: 0;">
+            <div class="w-100" style="text-align: center;">
+                <button type="button" id="close-modal" class=" close-button" data-dismiss="modal"
+                    aria-label="Close" onclick="resetVisibility()">x</button>
+                <div class="w-100">
+                    <div style="display:inline-block;">
+                        <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
+                    </div>
+                    <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
+                </div>
+            </div>
+
+
+            <div id="modalBody"
+                style=" font-size: 1em; font-weight: lighter; margin-top: 60px; text-align: center;">
+
+                <div class="w-100" id = "loginInput">
+                <input id="username-input" class="input-login" type="text" placeholder="login" name="username"
+                    required>
+                <input id="password-input" class="input-login" type="password" placeholder="hasło"
+                    name="password">
+                </div>
+                <!-- DO PRZYPOMNIENIA HASŁA-->
+                <div class="w-100" id="passwordReminder">
+                <input id="email-input" class="input-login" type="email" placeholder="adres e-mail"
+                    name="email">
+                <p id="dont-remember-pass" class="main-menu-item"
+                    style="cursor: pointer; align-self: center; margin-top: 15px; font-size: 0.75em;"
+                    onclick="remindPassword()">Nie pamiętam hasła</p>
+                <button id="send-reminder-btn" class="btn modal-button"
+                    style="margin-top: 15px; display:none;">Wyślij przypomnienie</button>
+                </div>
+                <!-- DO PRZYPOMNIENIA HASŁA - KONIEC-->
+
+                <!-- DO REJESTRACJI -->
+                <div id="registrationHelper" class="w-75" style="margin: auto; display: none;">
+                <h6 style="font-weight:normal;">Zarejestruj się jako...</h6>
+                <table class="w-100" style="margin-top: 40px;">
+                    <tr style="height: 150px; color: white;">
+                        <td class="td-clickable" onclick="redirectRegisterCitizen()">
+                            <img src="img/dom_logo.png" style="width: 50%;">
+                            <br>OBWATEL
+                        </td>
+                        <td style=" min-width: 10%;"></td>
+                        <td class="td-clickable" onclick="redirectRegisterCompany()">
+                            <img src="img/praca_logo.png" style="width: 50%;">
+                            <br>FIRMA
+                        </td>
+                    </tr>
+                </table>
+                <p class="modal-title" id="link-to-login" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
+                ">Masz już konto? <a href="#" class="logon-link" onclick="resetVisibility()">Zaloguj się</a></p>
+                </div>
+                <!-- DO REJESTRACJI - KOIEC-->
+
+            </div>
+            <button id="classic-login" type="submit" class="btn modal-button" data-dismiss="modal"
+                style="margin-top: 40px; ">Zaloguj</button>
+
+                <div class="w-100">
+                
+            <div id="google-login" class="g-signin2 google-signIn-button"
+                style="margin-top: 100px; min-width: 500px; display:block; color:black;" data-width="180px;" span-text="Zaloguj przez Google"
+                data-onsuccess="onSignIn"></div>
+</div>
+            <a class="logon-link" id="return-to-traditional-login" onclick="resetVisibility()"
+                style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif; display:none; cursor:pointer;">Powrót
+                do logowania tradycyjnego</a>
+
+            <p class="modal-title" id="link-to-register" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
+                ">Nie masz jeszcze konta? <a href="#" id="regiLink" class="logon-link" onclick="registrationStart()">Zarejestruj się</a></p>
+             </div>
+         </div>
+        </div>`;
+        
+        $("#modal-here").append((modal_login_register));
+*/
+
+
 }
 
 function popup(){

@@ -75,7 +75,7 @@
                                     <td scope="col" style="text-align: center;"><a href="#"
                                             class="main-menu-item">Aktualności</a></td>
                                     <td scope="col" class="main-menu-item"
-                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="initiatives.html"
                                             class="main-menu-item">Inicjatywy Obywatelskie</a></td>
                                     <td scope="col" class="main-menu-item"
                                         style="text-align: center; border-left: 1px solid white;"><a href="#"
@@ -100,7 +100,15 @@
 
 
     <!-- Main Layout-->
-    <main class=" w-100 h-100">
+    <main class=" w-100 h-100" style="position: relative;">
+
+
+        <div class="alert alert-danger alert-dismissible fade show w-100" role="alert" style="position: fixed; margin-top: -30px;">
+            <strong>Ups!</strong> Musisz jeszcze zaakceptować regulamin.
+            <button type="button" class="close" style="float:right;" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
 
 
         <div class="container my-container" style="min-height: 550px;">
@@ -180,7 +188,7 @@
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>-->
                 <div class="w-100" style="text-align: center; margin-top: 70px;">
-                <button type="button" class="btn btn-primary modal-button" style="margin: auto; width: 70%; " onclick="clickRegister()">Zarejestruj</button>
+                <button type="button" class="btn modal-button" style="margin: auto; width: 70%; " onclick="clickRegister()">Zarejestruj</button>
                     </div>
               </form>
 

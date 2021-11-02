@@ -244,8 +244,9 @@ span.buttonText {
   float:right; 
   font-weight:bold; 
   font-style:italic; 
-  color: #5C8E4E;
+  color: #609e4e;
 }
+
 
 #email-input{
   display: none;
