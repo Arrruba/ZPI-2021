@@ -1,4 +1,15 @@
 window.onload= function onload(){
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+        console.log('x');
+        console.log(JSON.parse(loggedInUser));
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('signIn').style.display = 'none';
+    } else {
+        console.log('no user');
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('signIn').style.display = 'block';
+    }
 /*
     var modal_login_register=` <div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
@@ -96,6 +107,35 @@ function popup(){
   // document.getElementById("modalBody").innerHTML ="0/10";
 }
 
+function signIn() {
+    var login = $("#username-input").val();
+    var password = $("#password-input").val();
+    var authRequest = {
+        login: login,
+        password: password
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:9003/auth",
+        data: JSON.stringify(authRequest),
+        contentType: "application/json; charset=utf-8",
+        traditional: true,
+        success: function (response) {
+            // var user = {
+            //     login: response.login,
+            //     role: response.role
+            // };
+            localStorage.setItem('user', JSON.stringify(response));            
+            // document.getElementById("classic-login").setAttribute("data-dismiss", "modal"); 
+            location.reload();
+        },
+        error: function(xhr, status, error) {
+            var err_msg = xhr.responseText;
+            console.log(err_msg);
+        }
+    });
+}
 
 function onSignIn(googleUser) {
     console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
@@ -129,16 +169,18 @@ function onSignIn(googleUser) {
      document.getElementById('close-modal').click();
     }
 
-    function signOut() {
-        gapi.auth2.getAuthInstance().signOut().then(function() {
-            console.log('User signed out');
-            var element = document.querySelector('#content');
-            element.innerHTML = '';
-            document.getElementById('content').style.display = 'none';
-            document.getElementById('signIn').style.display = 'block';
+function signOut() {
+    // gapi.auth2.getAuthInstance().signOut().then(function() {
+    //     console.log('User signed out');
+    //     var element = document.querySelector('#content');
+    //     element.innerHTML = '';
+    //     document.getElementById('content').style.display = 'none';
+    //     document.getElementById('signIn').style.display = 'block';
 
-        });
-    }
+    // });
+    localStorage.clear();
+    location.reload();
+}
 
 function remindPassword(){
     document.getElementById('username-input').style.display = 'none';

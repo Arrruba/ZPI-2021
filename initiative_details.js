@@ -1,4 +1,16 @@
 window.onload= function onload(){
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+        console.log('x');
+        console.log(JSON.parse(loggedInUser));
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('signIn').style.display = 'none';
+    } else {
+        console.log('no user');
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('signIn').style.display = 'block';
+    }
+
     var url_string = window.location.href
     var url = new URL(url_string);
     var initiative_id = url.searchParams.get("id");

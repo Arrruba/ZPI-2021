@@ -2,6 +2,18 @@
 var count=0;
 
 window.onload= function onload(){
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+        console.log('x');
+        console.log(JSON.parse(loggedInUser));
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('signIn').style.display = 'none';
+    } else {
+        console.log('no user');
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('signIn').style.display = 'block';
+    }
+
     var url_get_initiatives = "http://localhost:9003/initiatives/getAll";
     var id=1;
     $.ajax(
