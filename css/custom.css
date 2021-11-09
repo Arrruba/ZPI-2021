@@ -245,6 +245,7 @@ span.buttonText {
   font-weight:bold; 
   font-style:italic; 
   color: #609e4e;
+
 }
 
 
@@ -346,6 +347,16 @@ span.buttonText {
     margin: auto;
     cursor: pointer;
      }
+
+     .my-chosen-list-element{
+      background-color: #74e05756; 
+      padding-top: 5px;
+     padding-bottom: 5px;
+     padding-left: 30px;
+     padding-right: 30px; 
+     margin: auto;
+     cursor: pointer;
+      }
   
   .w-90{
     width: 90%;
