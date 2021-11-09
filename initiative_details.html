@@ -123,8 +123,12 @@
                 <p style="color: #609e4e; font-style: italic;">Autor:&nbsp&nbsp</p>
             </div>
 
-            <div class="w-100" style="text-align: center; margin-top: 70px;">
-                <button type="button" id="submit-btn" class="btn modal-button" style="margin: auto; width: 70%; " onclick="voteOnInitiative()">Zagłosuj na tą inicjatywę</button>
+            <div class="w-100" id="vote" style="text-align: center; margin-top: 70px;">
+                <button type="button"  class="btn modal-button" style="margin: auto; width: 70%; " onclick="voteOnInitiative()">Zagłosuj na tą inicjatywę</button>
+            </div>
+
+            <div class="w-100" id="unvote" style="text-align: center; margin-top: 70px; display:none;">
+                <button type="button"  class="btn modal-button" style="margin: auto; width: 70%; " onclick="removeVote()">Wycofaj głos</button>
             </div>
         </div>
 
