@@ -61,8 +61,19 @@ function clickRegister(user_type){
             if (el)
                 el.innerText="";
             fc_elements[i].style.borderColor="#91e561";
-        }
-        
+        }       
+    }
+
+    var pass = document.getElementById("form-password");
+    var repeat_pass = document.getElementById("form-repeat-password");
+    if ($("#form-password").val() != $("#form-repeat-password").val()) {
+        num_invalid++;
+        repeat_pass.style.borderColor="red";  
+        document.getElementById("form-repeat-password-small").innerText="Podane hasła nie są identyczne";
+    }
+    else {
+        document.getElementById("form-repeat-password-small").innerText="";
+        repeat_pass.style.borderColor="#91e561";
     }
 
     const check_bx = document.getElementById('regulaminCheck');
