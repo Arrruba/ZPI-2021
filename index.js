@@ -179,7 +179,7 @@ function signOut() {
 
     // });
     localStorage.clear();
-    location.reload();
+    document.location.href="/";
 }
 
 function remindPassword(){
