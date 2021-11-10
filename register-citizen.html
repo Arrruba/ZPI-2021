@@ -103,7 +103,7 @@
     <main class=" w-100 h-100" style="position: relative;">
 
 
-        <div class="alert alert-danger alert-dismissible fade show w-100" role="alert" style="position: fixed; margin-top: -30px;">
+        <div id="alert" class="alert alert-danger alert-dismissible fade show w-100" role="alert" style="position: fixed; margin-top: -30px; display: none;">
             <strong>Ups!</strong> Musisz jeszcze zaakceptować regulamin.
             <button type="button" class="close" style="float:right;" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -157,11 +157,8 @@
 
                     <div class="form-group" style="margin-top: 7px;" >
                         <label for="exampleFormControlSelect1">Dzielnica</label>
-                        <select class="form-control" id="exampleFormControlSelect1" style="background-color: #91e5612c;">
+                        <select class="form-control" id="form-district" style="background-color: #91e5612c;">
                             <option>Wybierz dzielnicę</option>
-                            <option>Fabryczna</option>
-                            <option>Krzyki</option>
-                            <option>Stare Miasto</option>
                         </select>
                         </div>
                   
@@ -188,7 +185,7 @@
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>-->
                 <div class="w-100" style="text-align: center; margin-top: 70px;">
-                <button type="button" class="btn modal-button" style="margin: auto; width: 70%; " onclick="clickRegister()">Zarejestruj</button>
+                <button type="button" class="btn modal-button" style="margin: auto; width: 70%; " onclick="clickRegister('citizen')">Zarejestruj</button>
                     </div>
               </form>
 
@@ -262,7 +259,7 @@
                      <!-- DO REJESTRACJI - KOIEC-->
 
                  </div>
-                 <button id="classic-login" type="submit" class="btn modal-button" data-dismiss="modal"
+                 <button id="classic-login" type="submit" onclick="signIn()" class="btn modal-button"
                      style="margin-top: 40px; ">Zaloguj</button>
                  <div id="google-login" class="g-signin2 google-signIn-button"
                      style="margin-top: 10px; min-width: 500px;" data-width="380px;" span-text="Zaloguj przez Google"
