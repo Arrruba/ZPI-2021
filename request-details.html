@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Czysty Wrocław</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <!--   <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" type="text/css"
+        href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- GOOGLE SIGN IN-->
+    <meta name="google-signin-client_id"
+        content="579430523466-oikc55j7b93kjgk5d6e2q2otkm37s297.apps.googleusercontent.com" />
+    <script src="https://apis.google.com/js/platform.js" async defer> </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Start your project here-->
+
+
+
+
+    <!-- Main Navigation-->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top w-100"
+            style=" background-color: white; box-shadow: none;">
+            <div class="w-100">
+                <div class="container w-100" style="height: 4%; margin-left:0;">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand" href="index.html">
+                        <img src="img/wroclaw logo.png" style="height: 2.5em;">
+                    </a>
+
+                    <div id="signIn" class="logIn main-menu-item"
+                        style="float: right; right: 1em; position: absolute; margin-right: 0; margin-top:-50px; "
+                        data-onsuccess="onSignIn">
+                        <button class="log-in-button" onclick="popup()" data-toggle="modal"
+                            data-target="#centralModal">Zaloguj się</button>
+                    </div>
+
+                    <div class="dropdown" style="float: right; right: 1em; position: absolute; margin-right: 0%;">
+                        <button id="content" class="log-in-button dropdown-toggle" data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                            style="margin-top: -50px; color: #4F4F4F; min-width: 100px; text-align: center; display:none;"></button>
+                        <ul class="dropdown-menu" aria-labelledby="content">
+                            <li>
+                                <a class="dropdown-item main-menu-item" href="account_settings.html">Aktualizuj
+                                    profil</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item main-menu-item" href="#" onclick="signOut()">Wyloguj się</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="container w-100">
+                    <div class="w-100" style=" margin: 0;min-width: 1000px;">
+                        <table class="w-100" style="table-layout: fixed;">
+                            <tbody class="w-100">
+                                <tr class="w-100" style="display: flex; justify-content: space-between;">
+                                    <td scope="col" style="text-align: center;"><a href="#"
+                                            class="main-menu-item">Aktualności</a></td>
+                                    <td scope="col" class="main-menu-item"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="initiatives.html"
+                                            class="main-menu-item">Inicjatywy Obywatelskie</a></td>
+                                    <td scope="col" class="main-menu-item"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
+                                            class="main-menu-item">Dofinansowania</a></td>
+                                    <td scope="col" class="main-menu-item"
+                                        style="text-align: center; border-left: 1px solid white;"><a href="#"
+                                            class="main-menu-item">Strefa Firm</a></td>
+                                </tr style="border-right: 1px solid white;">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar -->
+
+    </header>
+    <!-- /Main Navigation-->
+
+    <!--------------------------------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Main Layout-->
+    <main class=" w-100 h-100">
+
+
+        <div class="container my-container" style="min-height: 550px; padding-top: 50px;">
+            <table id="request-title" class="w-100" style="color: #5C8E4E; margin: auto; ">
+                <td class="w-90">
+                    <h2 id="title" style="color: #4f7c42;"></h2>
+                </td>                
+            </table>
+
+            <!-- <h2 id="title" style="color: #4f7c42;"></h2> -->
+            <div class="row" style="margin-top: 40px;">
+                <div id="is-approved" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Status:&nbsp&nbsp</p></div>
+                <div id="cost" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Koszt:&nbsp&nbsp</p></div>
+            </div>
+            <div id="description" style="margin-top: 40px;">
+                <p style="color: #609e4e; font-style: italic;">Opis:</p>
+            </div>
+        </div>
+
+
+           <!-- <div id="modal-here"></div> -->
+
+           <!-- Central Modal Medium data-toggle="modal" data-target="#centralModal"-->
+        <div class="modal fade w-100" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog w-100" role="document">
+            <div class="modal-content" style="padding: 10px; border-radius: 0;">
+                <div class="w-100" style="text-align: center;">
+                    <button type="button" id="close-modal" class=" close-button" data-dismiss="modal"
+                        aria-label="Close" onclick="resetVisibility()">x</button>
+                    <div class="w-100">
+                        <div style="display:inline-block;">
+                            <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
+                        </div>
+                        <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
+                    </div>
+                </div>
+
+
+                <div id="modalBody"
+                    style=" font-size: 1em; font-weight: lighter; margin-top: 60px; text-align: center;">
+
+                    <div class="w-100" id="loginInput">
+                        <input id="username-input" class="input-login" type="text" placeholder="login"
+                            name="username" required>
+                        <input id="password-input" class="input-login" type="password" placeholder="hasło"
+                            name="password">
+                    </div>
+                    <!-- DO PRZYPOMNIENIA HASŁA-->
+                    <div class="w-100" id="passwordReminder">
+                        <input id="email-input" class="input-login" type="email" placeholder="adres e-mail"
+                            name="email">
+                        <p id="dont-remember-pass" class="main-menu-item"
+                            style="cursor: pointer; align-self: center; margin-top: 15px; font-size: 0.75em;"
+                            onclick="remindPassword()">Nie pamiętam hasła</p>
+                        <button id="send-reminder-btn" class="btn modal-button"
+                            style="margin-top: 15px; display:none;">Wyślij przypomnienie</button>
+                    </div>
+                    <!-- DO PRZYPOMNIENIA HASŁA - KONIEC-->
+
+                    <!-- DO REJESTRACJI -->
+                    <div id="registrationHelper" class="w-75" style="margin: auto; display: none;">
+                        <h6 style="font-weight:normal;">Zarejestruj się jako...</h6>
+                        <table class="w-100" style="margin-top: 40px;">
+                            <tr style="height: 150px; color: white;">
+                                <td class="td-clickable" onclick="redirectRegisterCitizen()">
+                                    <img src="img/dom_logo.png" style="width: 50%;">
+                                    <br>OBWATEL
+                                </td>
+                                <td style=" min-width: 10%;"></td>
+                                <td class="td-clickable" onclick="redirectRegisterCompany()">
+                                    <img src="img/praca_logo.png" style="width: 50%;">
+                                    <br>FIRMA
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="modal-title" id="link-to-login" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
+                    ">Masz już konto? <a href="#" class="logon-link" onclick="resetVisibility()">Zaloguj się</a>
+                        </p>
+                    </div>
+                    <!-- DO REJESTRACJI - KOIEC-->
+
+                </div>
+                <button id="classic-login" type="submit" onclick="signIn()" class="btn modal-button"
+                    style="margin-top: 40px; ">Zaloguj</button>
+                <div id="google-login" class="g-signin2 google-signIn-button"
+                    style="margin-top: 10px; min-width: 500px;" data-width="380px;" span-text="Zaloguj przez Google"
+                    data-onsuccess="onSignIn"></div>
+
+                <a class="logon-link" id="return-to-traditional-login" onclick="resetVisibility()"
+                    style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif; display:none; cursor:pointer;">Powrót
+                    do logowania tradycyjnego</a>
+
+                <p class="modal-title" id="link-to-register" style="font-size: 0.75em; text-align: center; margin-top: 60px; margin-bottom: 20px;font-family: Segoe UI, Verdana, Helvetica, sans-serif;
+                    ">Nie masz jeszcze konta? <a href="#" id="regiLink" class="logon-link"
+                        onclick="registrationStart()">Zarejestruj się</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Central Modal Medium -->
+
+        
+
+
+    </main>
+    <!-- /Main Layout-->
+
+
+    <!-- jQuery -->
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="request-details.js"></script>
+
+
+  <!--  <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"> -->
+    </script>
+</body>
+
+</html>
