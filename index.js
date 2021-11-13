@@ -192,6 +192,30 @@ function remindPassword(){
     document.getElementById('google-login').style.marginTop="50px";
     document.getElementById('return-to-traditional-login').style.display='block';
     document.getElementById('link-to-register').style.marginTop="-3px";
+    document.getElementById('email-input-small').style.display='block';
+}
+
+function resetPassword(){
+    var email_element = document.getElementById("email-input");
+    var email_small = document.getElementById(email_element.id+"-small");
+    if (email_element.checkValidity() == false) {
+        email_element.style.borderColor="red";
+        email_small.innerText=email_element.validationMessage;
+    }
+    else {
+        console.log("http://localhost:9003/users/generateNewPassword?email=" + $("#email-input").val())
+        $.ajax({
+            type: "GET",
+            url:"http://localhost:9003/users/generateNewPassword?email=" + $("#email-input").val(),
+            success: function (data) {
+                email_small.innerText="";
+                email_small.style.borderColor="#91e561";
+                document.getElementById('email-input').style.display = 'none';
+                document.getElementById('send-reminder-btn').style.display = 'none';
+                document.getElementById('email-reset-success-info').style.display='block';
+            }
+        });
+    }
 }
     
 function resetVisibility(){
@@ -211,7 +235,8 @@ function resetVisibility(){
     document.getElementById('link-to-register').style.display="block";
     document.getElementById('link-to-register').style.marginTop="60px";
     document.getElementById('registrationHelper').style.display='none';
-
+    document.getElementById('email-input-small').style.display='none';
+    document.getElementById('email-reset-success-info').style.display='none';
 }
 
 function redirectRegisterCitizen(){
