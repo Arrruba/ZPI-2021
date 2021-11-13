@@ -193,12 +193,14 @@
                     <!-- DO PRZYPOMNIENIA HASŁA-->
                     <div class="w-100" id="passwordReminder">
                         <input id="email-input" class="input-login" type="email" placeholder="adres e-mail"
-                            name="email">
+                            name="email" required>
+                        <p id="email-input-small" style="color: red;"></p>
+                        <p id="email-reset-success-info" style="display:none;">Hasło zostało zresetowane. Sprawdź skrzynkę e-mail.</p>
                         <p id="dont-remember-pass" class="main-menu-item"
                             style="cursor: pointer; align-self: center; margin-top: 15px; font-size: 0.75em;"
                             onclick="remindPassword()">Nie pamiętam hasła</p>
                         <button id="send-reminder-btn" class="btn modal-button"
-                            style="margin-top: 15px; display:none;">Wyślij przypomnienie</button>
+                            style="margin-top: 15px; display:none;" onclick="resetPassword()">Wyślij przypomnienie</button>
                     </div>
                     <!-- DO PRZYPOMNIENIA HASŁA - KONIEC-->
 
