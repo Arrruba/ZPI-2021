@@ -115,6 +115,8 @@ function signIn() {
         password: password
     };
 
+    var err_el = document.getElementById("login-small");
+
     $.ajax({
         type: "POST",
         url: "http://localhost:9003/auth",
@@ -126,13 +128,15 @@ function signIn() {
             //     login: response.login,
             //     role: response.role
             // };
-            localStorage.setItem('user', JSON.stringify(response));            
+            localStorage.setItem('user', JSON.stringify(response));
             // document.getElementById("classic-login").setAttribute("data-dismiss", "modal"); 
             location.reload();
         },
         error: function(xhr, status, error) {
             var err_msg = xhr.responseText;
             console.log(err_msg);
+            err_el.style.display='block';
+            err_el.innerText="Niepoprawny login i/lub hasło";
         }
     });
 }
@@ -193,6 +197,7 @@ function remindPassword(){
     document.getElementById('return-to-traditional-login').style.display='block';
     document.getElementById('link-to-register').style.marginTop="-3px";
     document.getElementById('email-input-small').style.display='block';
+    document.getElementById("login-small").style.display='none';
 }
 
 function resetPassword(){
@@ -237,6 +242,7 @@ function resetVisibility(){
     document.getElementById('registrationHelper').style.display='none';
     document.getElementById('email-input-small').style.display='none';
     document.getElementById('email-reset-success-info').style.display='none';
+    document.getElementById("login-small").style.display='none';
 }
 
 function redirectRegisterCitizen(){
