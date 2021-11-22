@@ -39,7 +39,7 @@
     <!-- Main Navigation-->
     <header>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top w-100"
+        <nav id= "nav" class="navbar navbar-expand-lg navbar-dark fixed-top w-100"
             style=" background-color: white; box-shadow: none;">
             <div class="w-100">
                 <div class="container w-100" style="height: 4%; margin-left:0;">
@@ -110,9 +110,9 @@
 
         <div class="container my-container" style="min-height: 550px;">
 
-            <h6 id="user-login" style="margin-top: 50px; text-align: center; font-weight: lighter;">Profil Użytkownika
+            <h6 style="margin-top: 50px; text-align: center; font-weight: lighter;">Profil Użytkownika
                 </h4>
-                <h2 id="user-login" style=" text-align: center;">UserOne</h2>
+                <h2 id="user-login" style=" text-align: center;"></h2>
 
                 <form style="margin-top: 50px;">
                     <div class="form-group">
@@ -120,69 +120,83 @@
                         <input type="email" class="form-control" id="form-email" style="background-color: #91e5610a;" placeholder="jan.kowalski@example.com" disabled>
                     </div>
 
-                    <h5 style="margin-top: 50px;">Zmiana hasła</h5>
+                    <h5 id="pass-header"style="margin-top: 50px;">Zmiana hasła</h5>
+                    <p id="change-pass-success" style="color: #91e561; margin-bottom: 0; display: none;">Hasło zostało zmienione</p>
 
                     <div class="form-group">
                         <label for="form-old-pass">Stare hasło</label>
-                        <input type="password" class="form-control" id="form-old-pass" placeholder="******">
+                        <input type="password" class="form-control form-pass" id="form-old-pass" placeholder="******">
+                        <p id="form-old-pass-small"style="color: red;"></p>
                     </div>
 
                     <div class="form-group">
                         <label for="form-new-pass">Nowe hasło</label>
-                        <input type="password" class="form-control" id="form-new-pass" placeholder="******">
+                        <input type="password" class="form-control form-pass" id="form-new-pass" placeholder="******">
+                        <p id="form-new-pass-small"style="color: red;"></p>
                     </div>
 
                     <div class="form-group">
                         <label for="form-new-pass-repeated">Powtórz hasło</label>
-                        <input type="password" class="form-control" id="form-new-pass-repeated" placeholder="******">
+                        <input type="password" class="form-control form-pass" id="form-new-pass-repeated" placeholder="******">
+                        <p id="form-new-pass-repeated-small"style="color: red;"></p>
                     </div>
 
-                    <h5 style="margin-top: 50px;">Dane adresowe</h5>
+                    <div class="w-100" style="text-align: right; margin-top: 70px;">
+                        <button type="button" class="btn btn-primary modal-button" onclick="changePassword()"
+                            style="margin: auto; width: 30%; ">Zmień hasło</button>
+                    </div>
+                
+                    <h5 id="details-header" style="margin-top: 50px;">Dane adresowe</h5>
+                    <p id="change-details-success" style="color: #91e561; margin-bottom: 0; display: none;">Dane zostały zmienione</p>
 
                     <div class="row">
                         <div class="col">
-                            <label for="form-street">Ulica</label>
-                            <input type="text" class="form-control" id="form-street" placeholder="Uliczna" required>
+                            <label for="exampleFormControlInput1">Ulica</label>
+                            <input type="text" class="form-control form-details" id="form-street" placeholder="Uliczna">
+                            <p id="form-street-small"style="color: red;"></p>
                         </div>
                         <div class="col">
-                            <label for="form-address-number">Numer budynku / lokalu</label>
-                            <input type="text" class="form-control" id="form-address-number" placeholder="159" required>
+                            <label for="exampleFormControlInput1">Numer budynku / lokalu</label>
+                            <input type="text" class="form-control form-details" id="form-address-number" placeholder="159">
+                            <p id="form-address-number-small"style="color: red;"></p>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="form-postcode">Kod pocztowy</label>
-                        <input type="text" class="form-control" id="form-postcode" placeholder="00-000"
-                            pattern="^\d{2}-\d{3}$" required>
+                        <input type="text" class="form-control form-details" id="form-postcode" placeholder="00-000" pattern="^\d{2}-\d{3}$">
+                        <p id="form-postcode-small"style="color: red;"></p>
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Dzielnica</label>
-                        <select class="form-control" id="exampleFormControlSelect1"
-                            style="background-color: #91e5612c;">
-                            <option>Wybierz dzielnicę</option>
-                            <option>Fabryczna</option>
-                            <option>Krzyki</option>
-                            <option>Stare Miasto</option>
-                        </select>
+                    <div id="citizen-details" style="display: none;">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Dzielnica</label>
+                            <select class="form-control form-details" id="form-district" style="background-color: #91e5612c;">
+                                <option value="">Wybierz dzielnicę</option>
+                            </select>
+                        </div>
                     </div>
-                    <!--
-                <div class="form-group">
-                  <label for="exampleFormControlSelect2">Example multiple select</label>
-                  <select multiple class="form-control" id="exampleFormControlSelect2">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Example textarea</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>-->
+
+                    <div id="company-details" style="display: none;">
+                        <label for="exampleFormControlInput1">Numer NIP</label>
+                        <input type="number" class="form-control form-details" id="form-nip" placeholder="1234567890" maxlength="10">
+                        <p id="form-nip-small"style="color: red;"></p>
+
+                        <label for="exampleFormControlInput1">Numer telefonu do kontaktu - 1</label>
+                        <input type="tel" class="form-control form-details" id="form-fst-number" placeholder="123456789" pattern="[0-9]{9}">
+                        <p id="form-fst-number-small"style="color: red;"></p>
+
+                        <label for="exampleFormControlInput1">Numer telefonu do kontaktu - 2</label>
+                        <input type="tel" class="form-control form-details" id="form-snd-number" placeholder="278964801" pattern="[0-9]{9}">
+                        <p id="form-snd-number-small"style="color: red;"></p>
+
+                        <label for="exampleFormControlInput1">Adres e-mail do kontaktu</label>
+                        <input type="email" class="form-control form-details" id="form-contact-mail" placeholder="firma@abc.com" >
+                        <p id="form-contact-mail-small"style="color: red;"></p>
+                    </div>
+
                     <div class="w-100" style="text-align: right; margin-top: 70px;">
-                        <button type="submit" class="btn btn-primary modal-button"
+                        <button type="button" class="btn btn-primary modal-button" onclick="updateUser()"
                             style="margin: auto; width: 30%; ">Zapisz zmiany</button>
                     </div>
                 </form>
@@ -327,6 +341,7 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="account_settings.js"></script>
 
     <!--  <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"> -->
     </script>
