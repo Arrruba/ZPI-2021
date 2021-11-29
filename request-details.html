@@ -108,8 +108,15 @@
     <main class=" w-100 h-100">
 
 
-        <div class="container my-container" style="min-height: 550px; padding-top: 50px;">
-            <table id="request-title" class="w-100" style="color: #5C8E4E; margin: auto; ">
+        <div class="container my-container" style="min-height: 550px;">
+            <div style="margin-top: 20px;">
+                <a class="logon-link" onclick="window.history.back();"
+                        style="font-size: 1em; font-family: Segoe UI, Verdana, Helvetica, sans-serif; cursor:pointer;">
+                            &#8592; Powrót
+                </a>
+            </div>
+
+            <table id="request-title" class="w-100" style="color: #5C8E4E; margin: auto; margin-top: 20px;">
                 <td class="w-90">
                     <h2 id="title" style="color: #4f7c42;"></h2>
                 </td>                
@@ -117,11 +124,18 @@
 
             <!-- <h2 id="title" style="color: #4f7c42;"></h2> -->
             <div class="row" style="margin-top: 40px;">
+                <div id="author" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Autor:&nbsp&nbsp</p></div>
+                <div id="date" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Data utworzenia:&nbsp&nbsp</p></div>
+            </div>
+            <div class="row" style="margin-top: 40px;">
                 <div id="is-approved" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Status:&nbsp&nbsp</p></div>
                 <div id="cost" class="col" style="display: inline-flex;"><p style="color: #609e4e; font-style: italic;">Koszt:&nbsp&nbsp</p></div>
             </div>
             <div id="description" style="margin-top: 40px;">
                 <p style="color: #609e4e; font-style: italic;">Opis:</p>
+            </div>
+            <div class="row" style="margin-top: 40px;">
+                <div id="rating" class="col" ><p style="color: #609e4e; font-style: italic;">Ocena:&nbsp&nbsp</p></div>
             </div>
         </div>
 

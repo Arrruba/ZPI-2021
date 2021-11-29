@@ -58,6 +58,7 @@ function submitRequest() {
             success: function (msg) {                
                 document.getElementById('request-form').style.display='none';
                 document.getElementById('req-info').style.display='none';
+                document.getElementById('back').style.display='none';
                 document.getElementById('request-info-success').style.display='block';
             }
         });

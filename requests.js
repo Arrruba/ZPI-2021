@@ -5,13 +5,25 @@ window.onload= function  onload(){
         console.log(loggedInUser);
         document.getElementById('content').style.display = 'block';
         document.getElementById('signIn').style.display = 'none';
+
+        if (loggedInUser['role'] == 'user') {
+            var user_requests_btn = '<a href="user-requests.html"><button type="submit" class="btn btn-primary modal-button" style="margin: auto; width: 20%; ">Twoje wnioski</button></a>'
+            var request_form_btn = '<a href="request-form.html" style="margin-left: 10px;"><button type="submit" class="btn btn-primary modal-button" style="margin: auto; width: 20%; ">Utwórz wniosek</button></a>'
+            $('#requests-menu').append(user_requests_btn);
+            $('#requests-menu').append(request_form_btn);
+        } 
+        else if (loggedInUser['role'] == 'admin') {
+            var requests_for_approval_btn = '<a href="requests-for-approval.html"><button type="submit" class="btn btn-primary modal-button" style="margin: auto; width: 40%; ">Wnioski do zatwierdzenia</button></a>'
+            $('#requests-menu').append(requests_for_approval_btn);
+        }
     } else {
         console.log('no user');
         document.getElementById('content').style.display = 'none';
         document.getElementById('signIn').style.display = 'block';
     }
 
-    var url = "http://localhost:9003/requests?user=" + loggedInUser['login'];
+    var currentTime = new Date();
+    var url = "http://localhost:9003/requests?isApproved=true&year=" + currentTime.getFullYear();
     console.log(url);
 
     id = 1;
@@ -21,11 +33,11 @@ window.onload= function  onload(){
             type:"GET",
             contentType:"application/json; charset=utf-8",
             success: function(results){
-                console.log(results);
+                var requests = results.requestList.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
 
                 var htmlc='';
                 
-                $.each(results.requestList, function(key,item){
+                $.each(requests, function(key,item){
                     var descript = (item.description).substring(0,100);
                     if((item.description).length>=100)
                         descript +="...";
@@ -37,9 +49,8 @@ window.onload= function  onload(){
                     htmlc += '<table class="table my-tab-color w-100">';
                     htmlc += '<tbody id="tab-body">';
                         htmlc += '<tr><tr>';
-                            var is_approved = (item.approved === true) ? 'Zaakceptoway' : 'Czeka na akceptację';
-                            htmlc += '<td id="row'+id+'-is-approved" style="font-style:italic;">'+is_approved+'</td>';
-                            htmlc += '<td id="row'+id+'-date" style="font-style:italic; float:right;">'+date+'</td>';                            
+                            htmlc += '<td id="row'+id+'-user" style="font-style:italic;">'+item.user.login+'</td>';
+                            htmlc += '<td id="row'+id+'-date" style="font-style:italic; float:right;">'+date+'</td>';                             
                         htmlc += '</tr><tr>';
                             htmlc += '<td style="font-size:0.25em; display:none;">'+item.id+'</td>';
                             htmlc += '<td id="row'+id+'-title" style="font-weight:bold; font-size:1.25em;">'+item.title+'</td>';
@@ -47,8 +58,7 @@ window.onload= function  onload(){
                         htmlc += '</tr><tr>';
                             htmlc += '<td id="row'+id+'-description">'+descript+'</td>';
                         htmlc += '</tr><tr>';
-                            var rating = (item.rating == undefined) ? '-' : item.rating;
-                            htmlc += '<td id="row'+id+'-rating">Ocena: '+rating+'</td>';
+                            htmlc += '<td id="row'+id+'-rating">Ocena: '+item.rating+'</td>';
                         htmlc += '</tr>';
                     htmlc += '</tr>';
                     htmlc += '<tr></tr></tbody></table></div>';
