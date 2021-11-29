@@ -1,11 +1,14 @@
 
 window.onload= function onload(){
     const loggedInUser = localStorage.getItem("user");
+    var role="";
     if (loggedInUser) {
         console.log('x');
         console.log(JSON.parse(loggedInUser));
         document.getElementById('content').style.display = 'block';
         document.getElementById('signIn').style.display = 'none';
+        role = JSON.parse(localStorage.getItem("user"))["role"];
+        console.log(role);
     } else {
         console.log('no user');
         document.getElementById('content').style.display = 'none';
@@ -32,6 +35,7 @@ window.onload= function onload(){
     }
     }
 
+    var is_approved = null;
 
     $.ajax(
         {
@@ -46,18 +50,44 @@ window.onload= function onload(){
                 var category=results.category.name;
                 var description=results.description;
                 var author=results.user.login;
+                is_approved = results.isApproved;
+                var stat="";
+                if(is_approved==0) stat = "odrzucona";
+                else if(is_approved==1) stat = "zaakceptowana";
+                else stat = "nierozpatrzona";
+
+                console.log("ajax: "+is_approved);
                             
-                console.log(init_title);//+" "+author+" "+district);
                 $("#initiative-title").html((init_title));
                 $("#district-name").append((district));
                 $("#cost").append((cost)+" zł");
                 $("#category").append((category));
                 $('#details').append(description);
                 $('#author').append(author);
+                $('#status').html("Status:&nbsp&nbsp"+stat);
 
+                if(role.localeCompare("admin")==0){
+                        document.getElementById('regular-options').style.display = 'none';
+                        document.getElementById('admin-options').style.display = 'inline-flex';
+                        document.getElementById('status').style.display = 'block';
+                        console.log("is_approved: "+is_approved);
+                        console.log("i_a: "+is_approved);
+                        if(is_approved==0)  {
+                            document.getElementById('unaccept-btn').disabled = true;
+                            document.getElementById('accept-btn').disabled = false;
+                    }
+                        else if(is_approved==1)  {
+                            document.getElementById('accept-btn').disabled = true;
+                            document.getElementById('unaccept-btn').disabled = false;
+
+                        }
+
+                    }
             }
         }
     );
+
+    
 
 
     
@@ -67,6 +97,8 @@ function voteOnInitiative(){
     var url_string = window.location.href
     var url = new URL(url_string);
     var initiative_id = url.searchParams.get("id");
+
+    if(JSON.parse(localStorage.getItem("user"))!=null){
     
     var arr = window.sessionStorage.getItem("InitiativesToVoteOn");
     var array ;
@@ -86,6 +118,7 @@ function voteOnInitiative(){
         arr = initiative_id;
         window.sessionStorage.setItem("InitiativesToVoteOn", arr);
     }
+    $('#voteAddedModal').modal('show');
 
     document.getElementById('vote').style.display = 'none';
     document.getElementById('unvote').style.display = 'block';
@@ -95,6 +128,12 @@ function voteOnInitiative(){
 
     // init_array.push(initiative_id);
     // window.sessionStorage.setItem("InitiativesToVoteOn", JSON.stringify(init_array));
+    }
+
+    else{
+        document.getElementById('alert-login').style.display = 'block';
+    }
+
 }
 
 function removeVote(){
@@ -118,4 +157,51 @@ function removeVote(){
 
     document.getElementById('vote').style.display = 'block';
     document.getElementById('unvote').style.display = 'none';
+}
+
+function dismissModal(){
+    $('#voteAddedModal').modal('hide');
+}
+
+function changeState(i){
+    var url_change_state="";
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var initiative_id = url.searchParams.get("id");
+    if(i==1) {
+        url_change_state = "http://localhost:9003/initiatives/approve?initiative_id="+initiative_id;
+    }
+    else if(i==0) {
+        url_change_state = "http://localhost:9003/initiatives/unapprove?initiative_id="+initiative_id;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: url_change_state,
+       // data: JSON.stringify(requestBody),
+        contentType: "application/json; charset=utf-8",
+        traditional: true,
+        success: function (msg) {                
+            // document.getElementById('register-form').style.display='none';
+            // document.getElementById('reg-info').style.display='none';
+            // document.getElementById('register-info-success').style.display='block';
+        },
+        error: function(xhr, status, error) {
+            // var err_msg = xhr.responseText;
+            // console.log(err_msg);
+            // var element_id;
+            // var message
+            // if (err_msg == "Login is already taken: " + login) {
+            //     element_id = "form-login";
+            //     message = "Login jest już zajęty.";
+            // }
+            // else if (err_msg == "Email is already taken: " + contactEmail) {
+            //     element_id = "form-email";     
+            //     message = "E-mail jest już zajęty.";         
+            // }
+            // document.getElementById(element_id).style.borderColor="red";
+            // document.getElementById(element_id+"-small").innerText=message; 
+        }
+    });
+
 }
