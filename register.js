@@ -17,6 +17,28 @@ window.onload= function  onload(){
    // document.getElementById("submit-btn").addEventListener("click",clickRegister());
     
    //$(".alert").alert();
+
+   var url_get_districts = "http://localhost:9003/districts/getAll";
+
+   $.ajax(
+       {
+           url: url_get_districts,
+           type:"GET",
+           contentType:"application/json; charset=utf-8",
+           success: function(results){
+               console.log(results);
+
+               var htmlc='<option selected>dzielnica</option>';
+               
+               $.each(results.districtList, function(key,item){
+                   htmlc += '<option value="district-'+ item.name +'" >'+ item.name +'</option>';
+               });
+               $("#form-district").html((htmlc));
+           }
+       }
+   );
+
+
 }
 
 $(document).ready(function(e) {
@@ -35,8 +57,8 @@ $(document).ready(function(e) {
 
 function increaseErrorCount(){
     error_count=error_count+1;
-    console.log("error counttt:"+error_count);
-    console.log("aaa");
+    // console.log("error counttt:"+error_count);
+    // console.log("aaa");
 }
 
 function clickRegister(user_type){
@@ -136,7 +158,7 @@ function clickRegister(user_type){
                 }
                 else if (err_msg == "Email is already taken: " + contactEmail) {
                     element_id = "form-email";     
-                    message = "E-mail jest już zajęty.";           
+                    message = "E-mail jest już zajęty.";         
                 }
                 document.getElementById(element_id).style.borderColor="red";
                 document.getElementById(element_id+"-small").innerText=message; 

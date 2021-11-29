@@ -107,6 +107,13 @@
     <!-- Main Layout-->
     <main class=" w-100 h-100">
 
+        <div id="alert-login" class="alert alert-warning alert-dismissible fade show w-100" role="alert" style="position: fixed; margin-top: -30px; display: none;">
+            <strong>Ups!</strong> Aby zagłosować musisz być zalogowany.
+            <button type="button" class="close" style="float:right;" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
 
         <div class="container my-container" style="min-height: 550px; padding-top: 50px;">
 
@@ -122,14 +129,30 @@
             <div id="author" style="margin-top: 40px; display: inline-flex;">
                 <p style="color: #609e4e; font-style: italic;">Autor:&nbsp&nbsp</p>
             </div>
+            <div id="status" style="margin-top: 40px; display: none;">
+                <p style="color: #609e4e; font-style: italic;">Status:&nbsp&nbsp</p>
+            </div>
+
+            <div  id="regular-options">
 
             <div class="w-100" id="vote" style="text-align: center; margin-top: 70px;">
                 <button type="button"  class="btn modal-button" style="margin: auto; width: 70%; " onclick="voteOnInitiative()">Zagłosuj na tą inicjatywę</button>
             </div>
 
             <div class="w-100" id="unvote" style="text-align: center; margin-top: 70px; display:none;">
-                <button type="button"  class="btn modal-button" style="margin: auto; width: 70%; " onclick="removeVote()">Wycofaj głos</button>
+                <button type="button"  class="btn modal-button" style="margin: auto; width: 70%; background-color: rgb(255, 115, 0);" onclick="removeVote()">Wycofaj głos</button>
             </div>
+</div>
+            <div class="row w-100" id="admin-options" style="display: none;">
+            <div class="col" id="unaccept" style="float: left; margin-top: 70px; ">
+                <button type="button" id="unaccept-btn"  class="btn modal-button" style="margin: auto; width: 70%; background-color: rgb(255, 115, 0);" onclick="changeState(0)">Odrzuć</button>
+            </div>
+
+            <div class="col" id="accept" style="text-align: end; margin-top: 70px;">
+                <button type="button" id="accept-btn" class="btn modal-button" style="margin: auto; width: 70%; " onclick="changeState(1)">Akceptuj</button>
+            </div>
+            </div>
+
         </div>
 
 
@@ -214,6 +237,36 @@
     </div>
 
     <!-- Central Modal Medium -->
+
+
+    
+    <div class="modal fade w-100" id="voteAddedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog w-100" role="document">
+        <div class="modal-content" style=" border-radius: 0; width: 120%; margin-left: -10%;">
+            <div class="w-100" style="text-align: center;">
+                <img src="img/notification leaf top.png" style="height: 130px; float: left; ">
+                <div class="w-100">
+                    
+                    <div style="display:inline-block; margin-top: 50px; margin-left: -80px;">
+                        <img src="img/wroclaw logo.png" style="height: 40px; margin-right:0px; ">
+                    </div>
+                    <h6 class="modal-title" id="myModalLabel" style="margin-left:-30px;">rocław jest eko</h6>
+
+
+                    <div class = "w-100" id="modal-success">
+                        <div class="w-100" style="margin: auto;"><img style="height:80px; margin-top: 50px; margin-left: -13%;" src="img/info.png"></div>
+                        <div style="margin-top: 40px; text-align: center;">
+                            Głos został dodany do Twojej listy
+                        </div>
+                        <div class="w-100" style="margin-top: 40px; margin-left: -5%; text-align: center; margin-bottom: -60px;">
+                        <button class=" btn modal-button" id="dismiss-success-choice-btn"
+                            data-dismiss="modal" onclick="dismissModal()">OK</button>
+                        </div>
+                    </div>
+
+                    <img src="img/notification leaf bottom.png" style="height: 130px; float: right; ">
+                </div>
+            </div>
 
         
 

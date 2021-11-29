@@ -107,6 +107,20 @@
     <!-- Main Layout-->
     <main class=" w-100 h-100">
 
+        <div id="alert" class="alert alert-danger alert-dismissible fade show w-100" role="alert" style="position: fixed; margin-top: -30px; display: none;">
+            <strong>Ups!</strong> Muszisz być zalogowany aby móc zgłosić swój pomysł.
+            <button type="button" class="close" style="float:right;" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="alert-sukces" class="alert alert-success alert-dismissible fade show w-100" role="alert" style="position: fixed; margin-top: -30px; display: none;">
+            <strong>Sukces!</strong> Twoja inicjatywa została zgłoszona.
+            <button type="button" class="close" style="float:right;" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
 
         <div class="container my-container" style="min-height: 550px;">
 
@@ -117,11 +131,12 @@
                     <div class="form-group">
                         <label for="form-title">Tytuł</label>
                         <input type="text" class="form-control" id="form-title" placeholder="Plac zabaw na ul.Szewskiej" required>
+                        <p id="form-email-small"style="color: red;"></p>
                     </div>
 
                     <div class="form-group">
                         <label for="form-description">Opis</label>
-                        <textarea type="text" class="form-control" id="form-description" maxlength="255" placeholder="max 255 znaków" rows="5" required></textarea>
+                        <textarea type="text" class="form-control" id="form-description" maxlength="255" rows="5" required></textarea>
                     </div>
 
                     <div class="form-group">
@@ -131,8 +146,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="select-dist">Dzielnica</label>
+                         <select id="select-dist" class="w-100" style="height: 40px; padding-left: 10px; border-radius: 3px; border-color: #91e561;" aria-label="Default select example">                            
+                    </select>
+                   </div>
+
+                    <div class="form-group">
                         <label for="select-cat">Kategoria</label>
-    
                          <select id="select-cat" class="w-100" style="height: 40px; padding-left: 10px; border-radius: 3px; border-color: #91e561;" aria-label="Default select example">                            
                     </select>
                    </div>
@@ -152,8 +172,8 @@
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>-->
                     <div class="w-100" style="text-align: right; margin-top: 70px;">
-                        <button type="submit" class="btn btn-primary modal-button"
-                            style="margin: auto; width: 30%; ">Zgłoś inicjatywę</button>
+                        <button type="button" class="btn modal-button"
+                            style="margin: auto; width: 30%; " onclick="submitInitiative()">Zgłoś inicjatywę</button>
                     </div>
                 </form>
 

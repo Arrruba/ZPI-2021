@@ -115,6 +115,8 @@ function signIn() {
         password: password
     };
 
+    var err_el = document.getElementById("login-small");
+
     $.ajax({
         type: "POST",
         url: "http://localhost:9003/auth",
@@ -126,19 +128,26 @@ function signIn() {
             //     login: response.login,
             //     role: response.role
             // };
-            localStorage.setItem('user', JSON.stringify(response));            
+            localStorage.setItem('user', JSON.stringify(response));
+            localStorage.setItem('login_method', "classic");            
             // document.getElementById("classic-login").setAttribute("data-dismiss", "modal"); 
             location.reload();
         },
         error: function(xhr, status, error) {
             var err_msg = xhr.responseText;
             console.log(err_msg);
+            err_el.style.display='block';
+            err_el.innerText="Niepoprawny login i/lub hasło";
         }
     });
 }
 
 function onSignIn(googleUser) {
     console.log('User is ' + JSON.stringify(googleUser.getBasicProfile()))
+    // localStorage.setItem('user', JSON.stringify(googleUser.getBasicProfile())); 
+    // localStorage.setItem("user.login", JSON.stringify(googleUser.getBasicProfile().getEmail()));   
+    //console.log(JSON.parse(localStorage.getItem("user"))["login"]);     
+    localStorage.setItem('login_method', "google");            
 
     var element = document.querySelector('#content');
     var str_short = (googleUser.getBasicProfile().getName()).split(' ');
@@ -155,6 +164,30 @@ function onSignIn(googleUser) {
     element.append(image);
     document.getElementById('content').style.display = 'block';
 
+    var ulr_add_user = "http://localhost:9003/users/googleSignUp?user_email="+googleUser.getBasicProfile().getEmail();
+    $.ajax({
+        url: ulr_add_user,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        success: function(results) {
+            //$("#signIn").css("visibility", "none");
+            var user = {
+                login: results.login,//googleUser.getBasicProfile().getEmail(),
+                role: results.role//"citizen"
+            };
+            localStorage.setItem('user', JSON.stringify(user));
+            console.log(user);
+        }
+    });
+
+    // var user = {
+    //          login: googleUser.getBasicProfile().getEmail(),
+    //          role: null
+    //      };
+    // localStorage.setItem('user', JSON.stringify(user));
+    // console.log(user);
+
+    
     /*
     var ulr_add_user = "http://localhost:8080/addOrNotByData/user/"+googleUser.getBasicProfile().getEmail();
         $.ajax({
@@ -178,7 +211,18 @@ function signOut() {
     //     document.getElementById('signIn').style.display = 'block';
 
     // });
+    if(localStorage.getItem('login_method').localeCompare("google")==0){
+        gapi.auth2.getAuthInstance().signOut().then(function() {
+                console.log('User signed out');
+                var element = document.querySelector('#content');
+                element.innerHTML = '';
+                document.getElementById('content').style.display = 'none';
+                document.getElementById('signIn').style.display = 'block';
+        
+            });
+    }
     localStorage.clear();
+    window.sessionStorage.removeItem("InitiativesToVoteOn");
     document.location.href="index.html";
 }
 
@@ -193,6 +237,7 @@ function remindPassword(){
     document.getElementById('return-to-traditional-login').style.display='block';
     document.getElementById('link-to-register').style.marginTop="-3px";
     document.getElementById('email-input-small').style.display='block';
+    document.getElementById("login-small").style.display='none';
 }
 
 function resetPassword(){
@@ -237,6 +282,7 @@ function resetVisibility(){
     document.getElementById('registrationHelper').style.display='none';
     document.getElementById('email-input-small').style.display='none';
     document.getElementById('email-reset-success-info').style.display='none';
+    document.getElementById("login-small").style.display='none';
 }
 
 function redirectRegisterCitizen(){
