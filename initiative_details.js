@@ -64,7 +64,7 @@ window.onload= function onload(){
                 $("#category").append((category));
                 $('#details').append(description);
                 $('#author').append(author);
-                $('#status').html("Status:&nbsp&nbsp"+stat);
+                $('#status').append("<div style='display:inline-flex'><p style='color: #609e4e; font-style: italic;'>Status:&nbsp&nbsp</p>"+stat+"</div>");
 
                 if(role.localeCompare("admin")==0){
                         document.getElementById('regular-options').style.display = 'none';
@@ -185,6 +185,14 @@ function changeState(i){
             // document.getElementById('register-form').style.display='none';
             // document.getElementById('reg-info').style.display='none';
             // document.getElementById('register-info-success').style.display='block';
+            if(i==1){
+                document.getElementById('accept-btn').disabled = true;
+                document.getElementById('unaccept-btn').disabled = false;
+            }
+            else{
+                document.getElementById('unaccept-btn').disabled = true;
+                document.getElementById('accept-btn').disabled = false;
+            }
         },
         error: function(xhr, status, error) {
             // var err_msg = xhr.responseText;
